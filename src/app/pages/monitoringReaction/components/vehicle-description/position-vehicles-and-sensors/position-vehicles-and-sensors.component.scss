@@ -1,0 +1,136 @@
+@import "../../../../../theme/sass/motumVariables";
+
+
+.titlesection{
+    padding-left: 42.8883px;
+    padding-right: 42.883px; 
+    margin-top: 15.67px; 
+    color: gray;
+    font-family: $motum-font-family-rubik-medium;
+    font-size: 11px;
+}
+
+b{
+    color: #575756;
+    font-family: $motum-font-family-rubik-medium;
+    font-size: 11px;
+}
+.titletext{
+    margin-top: 10px; 
+    color: #878787 !important;
+    font-family: $motum-font-family-rubik;
+    font-size: 11px;
+}
+
+hr{
+    margin-top: 9.417px !important;
+    margin-bottom: 7px !important;
+    color: gray;
+}
+
+strong{
+    font-family: $motum-font-family-rubik;
+    margin-top: 10px; 
+    font-size: 11px;
+    color: #575756;
+
+}
+
+.strong-position-right-plates{
+    float: right;
+    margin-top: 0;
+    margin-right: 19px;
+}
+
+.strong-position-right-model{
+    float: right;
+    margin-top: 0;
+    margin-right: 33px;
+}
+
+.body-secction-vehicle{
+    margin-top: 12px;
+}
+
+.btn-vehicle-active{
+    height: 18.797px;
+    background: $motum-grey;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: $motum-white;
+    font-size: 9px;
+}
+
+.btn-vehicle{
+    height: 18.797px;
+    background: $motum-grey-border-group;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: $motum-white;
+    font-size: 9px;
+}
+
+.btn-position-right{
+    float: right;
+    width: 60px;
+    margin-top: 17px;
+    margin-right: 41.172px;
+    font-size: 9px;
+    font-family:  $motum-font-family-rubik;
+}
+
+.section-flex-config{
+   display: flex;
+   flex-direction: column;
+   justify-content:space-between;
+   height: calc(100vh - 238px) !important;
+}
+
+.section-flex-end-footter{
+    flex-grow: 1;
+    max-height: 40px;
+    padding-bottom: 15px;
+}
+
+.section-flex{
+    flex-grow: 2;
+}
+
+.section-flex-btn-justify{
+    flex-grow: 3;
+    justify-content:space-around;
+}
+
+.scroll-content-info{
+    height: 100%;
+    overflow-y: auto;
+    
+}
+
+.change-property-img{
+    width: 14px;
+    height: 14px;
+}
+
+@media (max-width: 1280px){
+    .body-secction-vehicle{
+        margin-top: 12px;
+    }
+    .titlesection{
+        padding-left: 22.8883px;
+        padding-right: 22.883px; 
+    }
+    .d-flex{
+        display: inline !important;
+    }
+    .space-btn-vehicle{
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    .space-btn-vehicle1{
+        margin-top: 5px;
+    }
+}
+

@@ -1,0 +1,31 @@
+//@include rubik-font('Rubik', 'RubikLight', 'Light', 300, normal);
+//@include rubik-font('Rubik', 'RubikLightItalic', 'LightItalic', 300, italic);
+//
+//@include rubik-font('Rubik', 'Rubik', 'Regular', 400, normal);
+//
+//@include rubik-font('Rubik', 'RubikMedium', 'Medium', 500, normal);
+//@include rubik-font('Rubik', 'RubikMediumItalic', 'MediumItalic', 500, italic);
+//
+//@include rubik-font('Rubik', 'RubikBold', 'Bold', 700, normal);
+//@include rubik-font('Rubik', 'RubikBoldItalic', 'BoldItalic', 700, italic);
+//
+//@include rubik-font('Rubik', 'RubikBlack', 'Black', 900, normal);
+//@include rubik-font('Rubik', 'RubikBlackItalic', 'BlackItalic', 900, italic);
+
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/assets#{$fonts-root}/rubic/Rubik-Regular.ttf');
+  src: local('Rubik'),
+       local('Rubik-Regular'),
+       url('/assets#{$fonts-root}/rubic/Rubik-Regular.ttf') format('truetype');
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+@font-face {
+  font-family: 'RubikMedium';
+  src: url('/assets#{$fonts-root}/rubic/Rubik-Medium.ttf');
+  src: url('/assets#{$fonts-root}/rubic/Rubik-Medium.ttf') format('truetype');
+  font-weight: 500 !important;
+  font-style: normal !important;
+}

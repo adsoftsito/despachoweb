@@ -1,0 +1,100 @@
+<ngb-tabset [justify]="'fill'">
+    <!--By vehicle-->
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <i class="motum-i tm-marker-in tm-x1"></i>
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="search-container">
+                <form class="row form-inline">
+                    <div class="form-group col-sm-12 has-success has-feedback motum-search-input">
+                        <input type="text"
+                               class="form-control search-input-form"
+                               (keyup)="searchAddressSubject.next($event)"
+                               [placeholder]=""
+                               aria-describedby="span-search-general">
+                        <span id="span-search-general" class="sr-only">(success)</span>
+                    </div>
+                </form>
+            </div>
+            <div class="list-search-result-container">
+                <a class="search-result-item" *ngFor="let address of addressList">
+                    <span class="search-result-icon">
+                        <div class="circle-icon">
+                            <i class="motum-i tm-marker-in tm-x1 icon-marker"></i>
+                        </div>
+                    </span>
+                    <span class="search-result-text">
+                        {{address.label}}
+                    </span>
+                </a>
+            </div>
+        </ng-template>
+    </ngb-tab>
+
+    <!--By direction-->
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <i class="motum-i tm-car tm-x1"></i>
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="search-container">
+                <form class="row form-inline">
+                    <div class="form-group col-sm-12 has-success has-feedback motum-search-input">
+                        <input type="text"
+                               class="form-control search-input-form"
+                               (keyup)="searchVehicleSubject.next($event)"
+                               [placeholder]=""
+                               aria-describedby="span-search-vehicle">
+                        <span id="span-search-vehicle" class="sr-only">(success)</span>
+                    </div>
+                </form>
+            </div>
+            <div class="list-search-result-container">
+                <a class="search-result-item" *ngFor="let vehicle of vehicleList">
+                    <span class="search-result-icon">
+                        <div class="circle-icon">
+                            <i class="motum-i tm-car tm-x1 icon-cart"></i>
+                        </div>
+                    </span>
+                    <span class="search-result-text">
+                        {{vehicle.label}}
+                    </span>
+                </a>
+            </div>
+        </ng-template>
+    </ngb-tab>
+
+    <!--By interest point-->
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <i class="motum-i tm-tack tm-x1"></i>
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="search-container">
+                <form class="row form-inline">
+                    <div class="form-group col-sm-12 has-success has-feedback motum-search-input">
+                        <input type="text"
+                               class="form-control search-input-form"
+                               (keyup)="searchInterestPointSubject.next($event)"
+                               [placeholder]=""
+                               aria-describedby="span-search-interest">
+                        <span id="span-search-interest" class="sr-only">(success)</span>
+                    </div>
+                </form>
+            </div>
+            <div class="list-search-result-container">
+                <a class="search-result-item" *ngFor="let interestPoint of interestPointList">
+                    <span class="search-result-icon">
+                        <div class="circle-icon">
+                            <i class="motum-i tm-tack tm-x1 icon-tack"></i>
+                        </div>
+                    </span>
+                    <span class="search-result-text">
+                        {{interestPoint.label}}
+                    </span>
+                </a>
+            </div>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

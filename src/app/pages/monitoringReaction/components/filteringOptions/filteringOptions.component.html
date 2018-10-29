@@ -1,0 +1,169 @@
+
+<fo-filter-selection *ngIf="flagFilterSelection" 
+[flagOperationStatus]="flagOperationStatus"
+[flagPointsInterest]="flagPointsInterest"
+[flagTypeVehicle]="flagTypeVehicle"
+[flagServiceStatus]="flagServiceStatus"
+(sendOptions)="selectionOptions($event)"
+(sendOptionsPI)="selectionOptionsPI($event)"
+(sendOptionsTV)="selectionOptionsTV($event)"
+(sendOptionsSS)="selectionOptionsSS($event)"
+(closeFS)="closeFS()"
+></fo-filter-selection>
+<div class="header">
+  <div class="col-md-12 col-sm-12">
+    <div class="row">
+        <div class="col-md-2 col-sm-2">
+            <div class="iconOptions"> <span class="motum-i tm-opt-filter options"></span></div>
+        </div>
+        <div class="title">
+            {{ filteringOptions | translate }}
+        </div>
+    </div>
+    <span><span class="motum-i tm-close closeFiltering" (click)="openFilteringOptions(flagCloseFiltering = false)"></span></span>
+  </div>
+</div>
+<div class="content {{flagFilterSelection ? 'expand' : ''}}">
+  <div class="col-md-12 col-sm-12 listContent">
+    <div class="row">
+      <div class="filters">
+        {{ selectedFilters | translate }}
+      </div>
+      <div class="noFilters">
+          <div class="selectedFilters">6</div>
+      </div>
+    </div>
+    <hr class="hr-title">
+  </div>
+  <div class="row"><!-- Start row list -->
+      <div class="listCollapse" data-toggle="collapse" href="#collapseExample" (click)="clickAngle = !clickAngle">
+        <div class="secctionTitle">
+        {{ fleetTree | translate }}
+        </div>  
+        <span class="iconAngle">
+          <i class="fa fa-angle-{{clickAngle ? 'down' : 'left'}}" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="collapse" id="collapseExample">
+        <div class="chips">
+          <div class="chip" *ngFor="let chip of chipsFleetTree; let i = index">
+            {{ chip.label }}
+            <i class="motum-i tm-x closeChip"></i>
+          </div>
+        </div>
+        
+      </div>
+      <hr class="hrList">
+  </div><!-- End row list -->
+  <div class="row"><!-- Start row list -->
+    <div class="listCollapse" data-toggle="collapse" href="#vehicleStatus" (click)="vehicleStatus = !vehicleStatus">
+      <div class="secctionTitle">
+        {{ vehicleStatusTrans | translate }}
+      </div>  
+      <span class="iconAngle">
+        <i class="fa fa-angle-{{vehicleStatus ? 'down' : 'left'}}" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div class="collapse" id="vehicleStatus">
+          <div class="chips checkboxes">
+            <label class="container {{ labelColorStop }}" >{{ stopped | translate }}
+                <input type="checkbox" (click)="checkboxStop(flagCheck1)" [checked]="flagCheck1">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container {{ labelColorOff }}">{{ off | translate }}
+              <input type="checkbox" (click)="checkboxOff(flagCheck2)" [checked]="flagCheck2">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container {{ labelColorMoving }}">{{ inMotion | translate }}
+                <input type="checkbox" (click)="checkboxMoving(flagCheck3)" [checked]="flagCheck3">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container {{ labelColorOn }}">{{ on | translate }}
+              <input type="checkbox" (click)="checkboxOn(flagCheck4)" [checked]="flagCheck4">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+    </div>
+    <hr class="hrList">
+</div><!-- End row list -->
+<div class="row"><!-- Start row list -->
+  <div class="listCollapse" data-toggle="collapse" href="#operationStatus" (click)="operationStatus = !operationStatus">
+    <div class="secctionTitle">
+      {{ operationStatusTrans | translate }}
+    </div>  
+    <span class="iconAngle">
+      <i class="fa fa-angle-{{operationStatus ? 'down' : 'left'}}" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="collapse" id="operationStatus">
+    <div class="chips">
+      <div class="chip" *ngFor="let chip of chipsOperationStatus; let i = index">
+        {{ chip.label }}
+        <i class="motum-i tm-x closeChip" (click)="deleteChip(chip)"></i>
+      </div>
+      <button class="motum-btn save" (click)="showOperationStatus() " >Más</button>
+    </div>
+  </div>
+  <hr class="hrList">
+</div><!-- End row list -->
+<div class="row"><!-- Start row list -->
+  <div class="listCollapse" data-toggle="collapse" href="#pointsInterest" (click)="pointsInterest = !pointsInterest">
+    <div class="secctionTitle">
+      {{ pointsInterestTrans | translate }}
+    </div>  
+    <span class="iconAngle">
+      <i class="fa fa-angle-{{pointsInterest ? 'down' : 'left'}}" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="collapse" id="pointsInterest">
+    <div class="chips">
+      <div class="chip" *ngFor="let chip of chipsPointsInterest; let i = index">
+        {{ chip.label }}
+        <i class="motum-i tm-x closeChip" (click)="deleteChipPI(chip)"></i>
+      </div>
+      <button class="motum-btn save" (click)="showPointsInterest()">Más</button>
+    </div>
+  </div>
+  <hr class="hrList">
+</div><!-- End row list -->
+<div class="row"><!-- Start row list -->
+  <div class="listCollapse" data-toggle="collapse" href="#typeVehicle" (click)="typeVehicle = !typeVehicle">
+    <div class="secctionTitle">
+      {{ typeVehicleTrans | translate }}
+    </div>  
+    <span class="iconAngle">
+      <i class="fa fa-angle-{{typeVehicle ? 'down' : 'left'}}" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="collapse" id="typeVehicle">
+    <div class="chips">
+      <div class="chip" *ngFor="let chip of chipsTypeVehicle; let i = index">
+        {{ chip.label }}
+        <i class="motum-i tm-x closeChip" (click)="deleteChipTV(chip)"></i>
+      </div>
+      <button class="motum-btn save" (click)="showTypeVehicle() " >Más</button>
+    </div>
+  </div>
+  <hr class="hrList">
+</div><!-- End row list -->
+<div class="row"><!-- Start row list -->
+  <div class="listCollapse" data-toggle="collapse" href="#serviceStatus" (click)="serviceStatus = !serviceStatus">
+    <div class="secctionTitle">
+      {{ serviceStatusTrans | translate }}
+    </div>  
+    <span class="iconAngle">
+      <i class="fa fa-angle-{{serviceStatus ? 'down' : 'left'}}" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="collapse" id="serviceStatus">
+    <div class="chips">
+      <div class="chip" *ngFor="let chip of chipsServiceStatus; let i = index">
+        {{ chip.label }}
+        <i class="motum-i tm-x closeChip" (click)="deleteChipSS(chip)"></i>
+      </div>
+      <button class="motum-btn save" (click)="showServiceStatus() " >Más</button>
+    </div>
+  </div>
+  <hr class="hrList">
+</div><!-- End row list -->
+</div>

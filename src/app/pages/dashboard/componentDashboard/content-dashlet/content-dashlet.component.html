@@ -1,0 +1,40 @@
+<div class="{{this.clickCloseMenu}}" (click)="closeMenuDashlet()"></div>
+<div class="dashletContent">
+  <div class="itemGridHeader">
+    <div class="styleTitleHeader">
+        <div>Indicador Kilometraje (Km)</div>
+    </div>
+    <div class="styleToolsHeader">
+      <div>
+        <div class="dateDashlet">
+            <input type="text" class="configDate" value="{{inputDateMy}}">
+        </div>
+        <div class="iconCalendar">
+            <motum-calender (dateModification)="receivesModifiedDate($event)"  [star]="start" [end]="end" [ranges]="ranges"></motum-calender>
+          </div>
+        <div class="iconMenuContext">
+          <i class="fa fa-ellipsis-v fa-lg" aria-hidden="true" (click)="openMenu(this.menuDashlet)"></i>
+        </div> 
+      </div>
+    </div>
+  </div>
+  <hr class="hrDashlet">
+  <div class="row">
+        <div class="col-md-12 titleDashlet">DAIMLER</div>
+        <div class="col-md-12 subTitleDashlet">Total: 576,760.86 I</div>
+        <div class="col-md-11 chart" id="chart{{recibeI}}"></div>
+  </div>
+  <div class="itemGridFooter">
+    <div class="styleIconFooter">
+      <div class="iconExpantFooter">
+        <i class="fa fa-arrows-alt fa-lg" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  
+  <app-menu-dashlet 
+      [reciveMenuDashlet]="menuDashlet" 
+      [reciveItemMenu]="reciveItem" 
+      (sendDeleteDashlet)="removeItem($event)">
+    </app-menu-dashlet>
+</div>

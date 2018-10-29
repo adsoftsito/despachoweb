@@ -1,0 +1,54 @@
+$ag-icons-path: '~ag-grid/src/styles/icons/';
+@import "../../../../theme/sass/conf/colorSchemes/mint";
+@charset "utf-8";
+
+agm-map {
+	height: 470px;
+	width: 100%;
+}
+.ag-table{
+	padding-left: 13px;
+}
+
+$ag-header-background-1: $primary;
+$ag-row-odd-background-color: #EBECEA;
+$ag-cell-focused-border: 1.7px solid $primary;
+$ag-root-font-family: Roboto;
+$ag-header-font-weight: 900 !default;
+
+$colors: (
+	red: #f44336,
+	pink: #e91e63,
+	purple: #9c27b0,
+	deep-purple: #673ab7,
+	indigo: #3f51b5,
+	blue: #001781,
+	light-blue: #03a9f4,
+	cyan: #00bcd4,
+	teal: #009688,
+	light-green: #8bc34a,
+	lime: #cddc39,
+	yellow: #ffeb3b,
+	amber: #ffc107,
+	orange: #ff9800,
+	deep-orange: #ff5722,
+	brown: #795548,
+	green: #93c47d
+);
+
+@each $color, $specific in $colors {
+	.table-travel-matrix.#{$color} {
+		.ag-header {
+			background: $specific;
+		}
+		.ag-layout-for-print .ag-header-container {
+			background: $specific;
+		}
+		.ag-cell-focus {
+			border: 1.7px solid $specific;
+		}
+	}
+}
+
+@import "~ag-grid/src/styles/ag-grid.scss";
+@import "~ag-grid/src/styles/theme-fresh.scss";

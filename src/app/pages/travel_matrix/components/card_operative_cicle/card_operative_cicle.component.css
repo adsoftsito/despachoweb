@@ -1,0 +1,89 @@
+.sinpadding [class*="col-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+    /*padding-top: 8px;
+    padding-bottom: 8px;*/
+}
+
+label{
+  font-size: 9px;
+  font-weight: bold;
+}
+
+b,li{
+  font-size: 16px;
+}
+
+.white-font{
+  color: #F2F2F3;
+}
+
+.card {
+    min-height: 69px;
+    max-height: 69px;
+}
+.col-5,
+
+.col-sm-5,
+
+.col-md-5,
+
+.col-lg-5 {
+
+  min-height: 1px;
+
+  position: relative;
+
+}
+.col-5,
+
+.col-sm-5,
+
+.col-md-5,
+
+.col-lg-5{
+
+  float: left;
+
+  width: 20%;
+
+}
+@media (min-width: 768px) {
+
+  .col-sm-5 {
+
+    float: left;
+
+    width: 20%;
+
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .col-md-5 {
+
+    float: left;
+
+    width: 20%;
+
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .col-lg-5 {
+
+    float: left;
+
+    width: 20%;
+
+  }
+
+}
+/*@media (min-width: 500px) and (max-width:800px){
+  .infoCard [class*="col-md-3"] { width: 80%;}
+
+}*/

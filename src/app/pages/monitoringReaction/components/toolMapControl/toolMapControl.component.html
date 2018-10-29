@@ -1,0 +1,80 @@
+<div class="adjust-size">
+    <ul class="motum-tool-map__menu skin-black">
+        <!-- Search -->
+        <li aria-haspopup="true"
+            [ngClass]="{'active': isDisplayContent[0]}"
+            class="m-menu-item">
+
+            <a href="javascript:;"
+               class="m-menu__link"
+               (click)="activateContent(0)">
+                <i *ngIf="!isDisplayContent[0]" class="motum-i tm-u tm-search tm-1x"></i>
+                <i *ngIf="isDisplayContent[0]" class="motum-i tm-x tm-1x i-active"></i>
+            </a>
+            <div *ngIf="isDisplayContent[0]" class="m-menu__submenu left animated fadeInUp">
+                <mr-search-tools-component></mr-search-tools-component>
+            </div>
+
+        </li>
+        <!-- Update -->
+        <li aria-haspopup="true"
+            class="m-menu-item"
+            [ngClass]="{'active': isDisplayContent[1]}">
+
+            <a href="javascript:;"
+               class="m-menu__link m-menu__toggle"
+               (click)="updateProcess(1)"
+               (mousedown)="displayReloadMenuOnMouseDown(1)"
+               (mouseup)="displayReloadMenuOnMouseUp(1)"
+               (mouseleave)="displayReloadMenuOnMouseUp(1)">
+                <i *ngIf="!isDisplayContent[1] && !isAutomatic" class="motum-i tm-update tm-1x"></i>
+                <i *ngIf="!isDisplayContent[1] && isAutomatic" class="motum-i tm-bolt"></i>
+                <i *ngIf="isDisplayContent[1]" class="motum-i tm-x tm-1x i-active"></i>
+            </a>
+            <div class="m-menu__submenu left animated fadeInUp" *ngIf="isDisplayContent[1]">
+                <mr-update-tools-component [isAutomatic]="isAutomatic"
+                                           [isRealTime]="isRealTime"
+                                           (automaticToggled)="toggleAutomatic($event)"
+                                           (realTimeToggled)="toggleRealTime($event)"></mr-update-tools-component>
+            </div>
+
+        </li>
+        <!-- Interest point -->
+        <li aria-haspopup="true"
+            class="m-menu-item"
+            [ngClass]="{'active': isDisplayContent[2]}">
+            <a href="javascript:;"
+               class="m-menu__link m-menu__toggle"
+               (click)="activateContent(2)">
+                <i *ngIf="!isDisplayContent[2]" class="motum-i tm-tack tm-1x"></i>
+                <i *ngIf="isDisplayContent[2]" class="motum-i tm-x tm-1x i-active"></i>
+            </a>
+            <div class="m-menu__submenu left animated fadeInUp" *ngIf="isDisplayContent[2]">
+                    <mr-interest-point></mr-interest-point>
+            </div>
+        </li>
+        <!-- Config -->
+        <li aria-haspopup="true"
+            class="m-menu-item"
+            [ngClass]="{'active': isDisplayContent[3]}">
+            <a href="javascript:;"
+               class="m-menu__link m-menu__toggle"
+               (click)="activateContent(3)">
+                <i *ngIf="!isDisplayContent[3]" class="motum-i tm-cog tm-1x"></i>
+                <i *ngIf="isDisplayContent[3]" class="motum-i tm-x tm-1x i-active"></i>
+            </a>
+            <div class="m-menu__submenu left animated fadeInUp" *ngIf="isDisplayContent[3]">
+                <mr-display></mr-display>
+            </div>
+        </li>
+        <!-- Expand -->
+        <li aria-haspopup="true"
+            class="m-menu-item"
+            (click)="fullScreenMode()">
+            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                <i class="motum-i tm-expand tm-1x"></i>
+                <!--<i class="fa fa-arrows-alt"></i>-->
+            </a>
+        </li>
+    </ul>
+</div>

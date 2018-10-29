@@ -1,0 +1,108 @@
+
+<!--<create-user-components></create-user-components>-->
+<ng-template #modalDelete let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <div class="motum-modal-icon">
+      <i class="motum-i tm-u tm-trash changepositionicon"></i>
+    </div>
+    <h5 class="modal-title">{{'pages.modalDelete.header' | translate }}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{'pages.modalDelete.content' | translate }}</p>
+    <p>{{'pages.modalDelete.contents' | translate }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn motum-btn-cancel button-lg" (click)="c(false)">{{'pages.modalDelete.cancel' | translate }}</button>
+    <button type="button" class="btn motum-btn-delete button-lg-remove" (click)="c(true)">{{'pages.modalDelete.remove' | translate }}</button>
+  </div>
+</ng-template>
+<ba-card>
+  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-lg-8">
+
+      <div>
+        <div class="btnCreateUsers">
+          <button class="btn btn-primary btn-with-icon motum-btn-create btnUsers" routerLink="/pages/usersControl/users/create" (click)='createUser()' type="button">
+            <i class="ion-plus"></i>
+            {{ 'pages.userControl.client_user.users' | translate }}
+          </button>
+        </div>
+
+
+        <div class="checkboxUsers">
+
+          <form class="row form-inline align-items-center">
+            <div class="form-group col-sm-1">
+              <div class="checkbox custom-checkbox">
+                <ba-checkbox [(ngModel)]="isRemember"
+                             [label]="' '"
+                             (change)="makeSelectableRow()"
+                             [ngModelOptions]="{standalone: true}">
+                </ba-checkbox>
+              </div>
+            </div>
+
+            <div class="form-group col-sm-1 animated fadeIn" (click)="onRemoveSelected(modalDelete)" *ngIf="isRemember">
+              <i class="motum-i tm-u tm-trash table-tools-icons-margin"></i>
+            </div>
+
+            <div class="form-group col-sm-1 animated fadeIn" *ngIf="isRemember" (click)="onDisableSelected()">
+              <i class="motum-i tm-u tm-disable table-tools-icons-margin"></i>
+            </div>
+
+            <div class="form-group col-sm-1 animated fadeIn" *ngIf="isRemember" (click)="onAbleSelected()">
+              <i class="motum-i tm-u tm-able table-tools-icons-margin"></i>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4 col-sm-4 col-lg-4">
+
+      <form class="row form-inline">
+        <div class="form-group col-sm-12 has-success has-feedback motum-search-input">
+          <input id="inputSuccess2"
+                 type="text"
+                 class="form-control search-input-form"
+                 [placeholder]=" 'pages.userControl.client_user.busqueda' | translate "
+                 aria-describedby="inputSuccess2Status">
+          <i class="motum-i tm-u tm-search form-control-feedback font-size-search" aria-hidden="true" (click)="unClick()"></i>
+          <span id="inputSuccess2Status" class="sr-only">(success)</span>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <hr class="hrUsers">
+  <div class="row">
+    <!--Table-->
+    <!--(cellClicked)="onCellClicked($event,content)"-->
+    <div class="col-md-12 col-sm-12 col-lg-12" >
+      <ag-grid-angular style="width: 100%; height: 460px"
+                       class="ag-theme-material"
+                       [gridOptions] = "gridOptions"
+                       [rowSelection]="rowSelection"
+
+                       [icons]="customIcons"
+
+                       [suppressRowClickSelection]="true"
+                       [suppressAggFuncInHeader]="true"
+                       [enableColResize]="true"
+                       [pagination]="true"
+                       [animateRows]="true"
+
+                       (cellClicked)="onCellClicked($event)"
+                       (selectionChanged)="onSelectionChanged($event)"
+                       (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+
+    </div>
+  </div>
+</ba-card>

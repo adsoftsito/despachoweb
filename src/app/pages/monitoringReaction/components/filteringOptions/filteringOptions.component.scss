@@ -1,0 +1,241 @@
+@import '../../../../theme/sass/motumVariables';
+
+.header{
+    padding: 10px;
+    background-color: $motum-black-partner;
+    height: 78.719px;
+
+    .iconOptions{
+        width: 41px;
+        height: 41px;
+        margin-top: 10px;
+        margin-left: -5.399px;
+        margin-right: 13px;
+        background-color: #644ede;
+        border-radius: 100%;
+        border: 2px solid $motum-white;
+      }
+    
+    .options{
+        font-size: 22px;
+        color: $motum-white;
+        position: absolute;
+        left: 20px;
+        top: 19px;
+    }
+  
+    .title{
+        position: absolute;
+        top: 22px;
+        left: 68.517px;
+        font-size: 14px;
+        font-weight: bold;
+        color: $motum-white;
+        width: 60%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .closeFiltering{
+        position: absolute;
+        font-size: 9px;
+        color: $motum-white;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+    }
+}
+
+.expand{
+    width: 33.33%;
+}
+
+.content{
+    padding: 10px 5px 3px 5px;
+    background-color: $motum-white;
+    height: calc(100vh - 157px);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .listContent{
+        padding: 0;
+    }
+
+    .filters{
+        position: relative;
+        left: 21.781px;
+        top: 4px;
+        font-weight: bold;
+        font-size: 11px;
+        color: $motum-grey-titles;
+        width: 38%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-right: 5px;
+    }
+    .noFilters{
+        position: relative;
+        left: 15px;
+        top: 2px;
+    }
+    .selectedFilters{
+        width: 20px;
+        height: 20px;
+        background-color: #4d4d4d;
+        border-radius: 100%;
+        text-align: center;
+        line-height: 1.5em;
+        color: $motum-white;
+        font-size: 14px;
+    }
+    .hr-title{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 14.631px;
+        margin-bottom: 13px;
+    }
+    .hrList{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        width: 91%;
+        margin-top: 16.259px;
+        margin-bottom: 12px;
+    }
+  
+    .listCollapse{
+        position: relative;
+        cursor: pointer;
+        font-size: 13px;
+        width: 87%;
+        left: 23px;
+    }
+    .secctionTitle{
+        font-weight: bold;
+        color: $motum-grey-titles;
+        font-size: 11px;
+        width: 50%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+        left: 2.641px;
+        top: 2.318px;
+    }
+    .iconAngle{
+        position: absolute;
+        top: -1.32px;
+        right: 1.719px;
+        font-size: 19px;
+    }
+    .chips{
+        position: relative;
+        padding-top: 11.76px;
+        padding-left: 23.815px;
+        padding-bottom: 4px;
+        width: 290px;
+
+        &.checkboxes{
+            width: 310px;
+        }
+        .selecctLabel{
+            color: $motum-blue-partner;
+        }
+        .defaultLabel{
+            color: $motum-grey-titles;
+        }
+        
+        .chip{
+            display: inline-block;
+            height: 16px;
+            font-size: 10px;
+            padding: 0 6px;
+            border-radius: 30px;
+            background-color: $motum-blue-partner;
+            color: $motum-white;
+            margin-bottom: 0px;
+            margin-right: 9.178px;
+    
+            .closeChip{
+                cursor: pointer;
+                float: right;
+                font-size: 6px;
+                color: $motum-white !important;
+                line-height: 16px; 
+                padding-left: 5px;
+            }
+        }
+        .input{
+            background: none;
+            background: none;
+            border: 0;
+            color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            font-size: 11px;
+            line-height: 14px;
+            outline: 0;
+            margin: 0;
+            padding: 0 !important;
+            width: 120px !important;
+        }
+    }
+    
+}
+
+.container {
+    display: inline;
+    position: relative;
+    padding-left: 15px;
+    margin-right: -8px;
+    margin-bottom: 11px;
+    cursor: pointer;
+    font-size: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 11px;
+    border-radius: 4px;
+    border: 1px solid $motum-purple-checkbox;
+    width: 11px;
+    background-color: $motum-white;
+}
+
+
+
+.container input:checked ~ .checkmark {
+    background-color: $motum-blue-partner;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 3px;
+    top: 0px;
+    width: 4.2px;
+    height: 7px;
+    border: solid $motum-white;
+    border-width: 0px 1px 1px 0px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

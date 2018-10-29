@@ -1,0 +1,32 @@
+<div class="al-content">
+<menu-component
+[isSidebarCollapsed] = false [showMenuList] = false [showMenuUsers] = false>
+</menu-component>
+
+<div style="text-align: center; margin-top: 15px; margin-bottom: 30px;">
+  DAIMLER / RAME
+</div>
+
+<app-company-dashboard></app-company-dashboard>
+
+<gridster [options]="config" droppable (onDrop)="onItemDrop($event)">
+  <gridster-item class="itemGird" *ngFor="let item of items; index as i" [item]="item">
+     
+    <app-content-dashlet 
+        [reciveItem]="item" 
+        [recibeI]="i" 
+        [idItemChart]="this.idChartDrag" 
+        [lastItemAdd]="this.itemAdd" 
+        (deleteGridsterI)="deleteItemGridster($event)">
+      </app-content-dashlet> 
+    
+  </gridster-item>
+</gridster>
+
+
+
+<floatbutton
+  [configFloatButton] ="configFloatButton"
+  (eventoBottun)="eventButton($event)"
+></floatbutton>
+</div>

@@ -1,0 +1,35 @@
+@import "../../theme/sass/motumVariables";
+monitoring-and-reaction-component {
+  .m-item-z-index-5 {
+    z-index: 5;
+  }
+  .m-item-z-index-6 {
+    z-index: 6;
+  }
+
+
+
+  // --------------------
+  // POSITION PROPERTIES
+  // --------------------
+  .motum-fixed-map-tools {
+    position: fixed;
+    padding: 30px;
+    top: auto;
+    left: auto;
+    right: 0;
+
+  }
+
+  .motum-absolute-menu {
+    position: absolute;
+    top: auto;
+    left: 0;
+    height: calc(100vh - 66px);
+    width: 100%;
+  }
+
+  .background-menu {
+    background-color: white;
+  }
+}

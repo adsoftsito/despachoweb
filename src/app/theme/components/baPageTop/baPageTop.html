@@ -1,0 +1,25 @@
+<div class="page-top clearfix" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)"
+     [ngClass]="{scrolled: isScrolled}">
+    <a *ngIf="isMenuCollapsed" id="logoMm" href (click)="toggleMenu()" class="al-logo clearfix">
+      <i class="motum-i tm-mu tm-logo-in"></i>
+    </a>
+    <a *ngIf="!isMenuCollapsed" id="logoM" href (click)="toggleMenu()" class="al-logo clearfix">
+      <img id="imgSvg" xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg" src="{{iconLogin}}"/>
+    </a>
+    <breadcrumb></breadcrumb>
+    
+  <div class="user-profile clearfix">
+    <div class="dropdown al-user-profile">
+      <a class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
+        <!--<img src="{{ ( 'Nasta' | baProfilePicture ) }}">-->
+          <img *ngIf="userData" src="{{ userData.avatar }}">
+      </a>
+      <ul class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
+        <li class="dropdown-item"><a href><i class="fa fa-user"></i>Profile</a></li>
+        <li class="dropdown-item"><a href><i class="fa fa-cog"></i>Settings</a></li>
+        <li class="dropdown-item"><a routerLink="/login" class="signout" (click)="signOut()"><i class="fa fa-power-off"></i>Sign out</a></li>
+      </ul>
+    </div>
+    <!-- <ba-msg-center></ba-msg-center> -->
+  </div>
+</div>

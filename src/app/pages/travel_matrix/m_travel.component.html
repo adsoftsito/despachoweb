@@ -1,0 +1,53 @@
+<div class="al-content">
+<div class="widgets">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="row">
+          <Inicio tarjetas de monitoreo de entregas >
+          <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0, ngb-panel-1">
+          <Ciclo operativo>
+          <<ngb-panel title="Ciclo operativo">
+          <ng-template ngbPanelContent>
+          <card-operative #operative *ngIf="data" [dataConfig]="data"></card-operative>
+        </ng-template>
+      </ngb-panel>>
+      <Fin Ciclo operativo>
+      <Ordenes>
+      <<ngb-panel title="Ordenes">
+      <ng-template ngbPanelContent>
+      <card-orders #orders *ngIf="data" [ordersData]="data"></card-orders>
+    </ng-template>
+  </ngb-panel>>
+  <Fin Ordenes>
+  </ngb-accordion>
+</div>>
+<div class="col-md-6 col-sm-6">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title"> Ordenes </h4>
+    </div>
+    <div class="card-body">
+      <card-orders #orders *ngIf="data" [ordersData]="data"></card-orders>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 col-sm-6">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">Ciclo operativo </h4>
+    </div>
+    <div class="card-body">
+      <card-operative #operative *ngIf="data" [dataConfig]="data"></card-operative>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <h2 class="table-title-ag">Información actual</h2>
+  <table-ag #tableAg *ngIf="data" [tableData]="data"></table-ag>
+</div>
+</div>
+</div>
+</div>
+</div>

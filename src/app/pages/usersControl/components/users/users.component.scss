@@ -1,0 +1,180 @@
+$icons-path: "~ag-grid/src/styles/icons/";
+$ag-mat-icons-path: "~ag-grid/src/styles/material-icons/";
+
+$motum-official-grey-1: #b3b3b3;
+$motum-official-grey-2: #c4c4c4;
+$motum-official-grey-3: #f1f1f1;
+
+$motum-official-green-1: #33df69;
+
+$motum-official-blue-1: #136df8;
+$motum-official-blue-2: #f3f8ff;
+
+// .custom-checkbox input[type="checkbox"] {
+//     display:none;
+// }
+.custom-checkbox input[type="checkbox"] + span::before {
+  font-family: "MotumIcons";
+  content: "\e90f";
+  border: 0;
+  font-size: 15px;
+  min-width: 17px;
+  margin-top: 1px;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + span::before {
+  // background-color: $motum-official-blue-1 !important;
+  // color: white;
+  // border: 0px;
+  // font-family: "fontAwesome";
+  // font-size: 12px;
+  content: "";
+  border-radius: 15%;
+  min-width: 17px;
+  background-image: url("../../../../../assets/fonts/themeMotum/iconsFont/icons-svg/checkbox-checked.svg") !important;
+}
+
+.motum-hover-name:hover {
+  color: $motum-official-blue-1;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ag-theme-material .ag-paging-panel > span.ag-paging-row-summary-panel {
+  display: none;
+}
+
+.ag-theme-material .ag-paging-panel {
+  justify-content: center !important;
+}
+
+/**
+ * Icons for table tools
+ */
+// .table-tools-icons-margin {
+//   margin-bottom: 12px;
+//   margin-top: 10px;
+// }
+
+.motum-i.tm-u.tm-trash.table-tools-icons-margin {
+  color: $motum-official-grey-1;
+  font-size: 16px;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+
+.motum-i.tm-u.tm-disable.table-tools-icons-margin {
+  color: $motum-official-grey-2;
+}
+
+.motum-i.tm-u.tm-able.table-tools-icons-margin {
+  color: $motum-official-green-1;
+}
+
+button.motum-btn-create:hover {
+  background: #fff0 !important;
+  border-color: $motum-official-green-1 !important;
+  transform: scale(1) !important;
+  color: $motum-official-green-1 !important;
+}
+
+button.motum-btn-create:focus {
+  box-shadow: 0 0 0 2px rgba(2, 117, 216, 0) !important;
+}
+
+label.custom-checkbox {
+  margin-top: 10px;
+}
+
+
+/**
+ * Modify ag-grid classes
+ */
+.ag-row-hover {
+  background-color: $motum-official-blue-2 !important;
+}
+
+.ag-theme-material .ag-cell-focus {
+  border: 0 solid $motum-official-grey-1 !important;
+}
+
+.ag-theme-material .ag-icon-checkbox-checked:empty {
+  background-image: url("../../../../../assets/fonts/themeMotum/iconsFont/icons-svg/checkbox-checked.svg") !important;
+}
+.ag-theme-material .ag-icon-checkbox-unchecked {
+  background-image: url("../../../../../assets/fonts/themeMotum/iconsFont/icons-svg/checkbox-unchecked.svg") !important;
+}
+
+users-component.col-md-12{
+
+  .card{
+    //  margin: 44.134px 50.966px;
+      margin: 36.134px 18.966px 0px 10.966px;
+      border-radius: 10px;
+    }
+  .card > .card-body{
+      padding: 0.398px 11.866px;
+    }
+  .motum-i.tm-u.tm-search:before{
+      font-size: 15px;
+  }
+  .btn-with-icon i{
+    margin-right: 7px;
+    margin-left: -4px;
+  }
+
+
+  .hrUsers{
+    margin-top: 0.846px;
+    margin-bottom: 0px;
+  }
+  .checkboxUsers{
+    display: inline-block;
+    margin-left: 12.842px;
+  }
+  .btnCreateUsers{
+    display: inline;
+  }
+
+  
+}
+
+.changepositionicon{
+  margin-bottom: 7px !important;
+  height: 17px !important;
+  width: 24px !important;
+  margin-left: 7px;
+  margin-top: 7px;
+}
+
+.button-lg{
+  width: 67px !important;
+  height: 25px !important;
+  line-height: 5px !important;
+}
+.button-lg-remove{
+  width: 67px !important;
+  height: 25px !important;
+  line-height: 5px !important;
+}
+
+.btn{
+  transition: none !important;
+}
+
+.btn:hover{
+  transform: none !important;
+}
+
+
+$font-family: 'Rubik', sans-serif;
+$secondary-font-family: 'Rubik', sans-serif;
+$font-size: 11px;
+$secondary-font-size: 9.64px;
+$secondary-foreground-color: rgba(0,0,0, 0.7);
+
+@import '~ag-grid/src/styles/ag-grid.scss';
+@import '~ag-grid/src/styles/ag-theme-material';

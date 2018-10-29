@@ -1,0 +1,575 @@
+<div #backdrop class="any">
+  <div [@slideHiddenShow] = 'windowState' #window class="window-edit">
+    <div class="window-lt">
+      <div class="window-header">
+        <div class="row" *ngIf="editar">
+          <div >
+            <div class="avatar {{setColorAvatar}}">{{initials}}</div>
+          </div>
+          <div >
+            <div class="nameUser">{{userModel.usuario}} {{userModel.apellidop}}</div>
+            <div class="rolUser">{{userModel.rol}}</div>
+          </div>
+        </div>
+        <div class="row" *ngIf="!editar">
+          <div >
+            <div class="avatarNew"><i class="motum-i tm-u tm-new-user userIcon "></i></div>
+          </div>
+          <div >
+            <div class="nameUserNew">{{userModel.usuario}}</div>
+          </div>
+        </div>
+      </div>
+      <ngb-tabset #t="ngbTabset" [justify]="'end'">
+        <ngb-tab id="tabProducto" title="Producto">
+          <ng-template ngbTabContent>
+            <div class="window-body">
+              <div class="section-head">
+                <p class="section-title" *ngIf="!editar">CREAR PEDIDO</p>
+                <hr class="window-section-space">
+              </div>
+              <div class="section-body">
+                <form (ngSubmit)="addOrder()"  class="ng-untouched ng-pristine ng-valid">
+                  <div class="row window-body-margin-medium">
+                    <div class="col-md-12">
+                      <label class="window-section-space window-bold-style">Información del producto</label>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                          <div class="form-group has-success">
+                            <label for="inputsm">Cantidad</label>
+                            <input [(ngModel)]="productForm.quantity" type="number" min="0" max="50" class="form-control input-sm" id="inputCantidad" [ngModelOptions]="{standalone: true}" required>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="form-group has-success">
+                            <label for="inputsm">Plan Hardware</label>
+                            <select [(ngModel)]="productForm.plan" name="plan" id="selectPlan" class="form-control input-sm">
+                              <option *ngFor="let item of plan" value="{{item.plan}}">{{item.plan}}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                          <div class="form-group has-success">
+                            <label for="inputsm">Producto</label>
+                            <select [(ngModel)]="productForm.product" name="producto" id="selectProduct" class="form-control input-sm">
+                              <option *ngFor="let item of products" value="{{item.product}}">{{item.product}}</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="form-group has-success">
+                            <label for="inputsm">Cargo</label>
+                            <input [(ngModel)]="productForm.charge" type="text" class="form-control input-sm" id="inputCharge" [ngModelOptions]="{standalone: true}" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                          <div class="form-group has-success">
+                            <label for="inputsm">Duración</label>
+                            <select [(ngModel)]="productForm.duration" name="cantidad" id="selectDuration" class="form-control input-sm">
+                              <option *ngFor="let item of duration" value="{{item.duration}}">{{item.duration}}</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <label for="inputsm">Folio ERP</label>
+                          <div class="form-group has-success">
+                            <input [(ngModel)]="productForm.folioERP" type="text" class="form-control input-sm" id="selectFolioERP" [ngModelOptions]="{standalone: true}" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 hidden-md-down">
+                    </div>
+                    <div class="col-md-2 col-sm-4 float-left">
+                      <button type="submit" class="btn btn-add-table window-btn-size">Agregar</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="table-responsive table-style-motum">
+                  <table class="table table-striped">
+                    <thead class="thead-light">
+                      <tr class="m-0">
+                        <th>Consecutivo</th>
+                        <th>Cantidad</th>
+                        <th>Plan Hardware</th>
+                        <th>Producto</th>
+                        <th>Cargo</th>
+                        <th>Duración</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of productsList; let i = index">
+                        <td>
+                          {{i}}
+                        </td>
+                        <td>
+                          <input [(ngModel)]="productsList[i].quantity" (change)="onChangeQuantityProduct($event)" type="number" min="0" max="50" class="form-control input-sm" required>
+                        </td>
+                        <td>
+                          <select2 class="customSelectSingle" (valueChanged)="valueChangedProductPlan($event, i)" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true required>
+                            <option value="item.plan">{{item.plan}}</option>
+                            <option value ="MotumTrack">MotumTrack</option>
+                            <option value ="Motum Uptime">Motum Uptime</option>
+                            <option value ="Producto 1">Plan 1</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 class="customSelectSingle" (valueChanged)="valueChangedProductProduct($event, i)" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true required>
+                            <option value="item.product">{{item.product}}</option>
+                            <option value ="Subscripción">Subscripción</option>
+                            <option value ="Compra">Compra</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 class="customSelectSingle" (valueChanged)="valueChangedProductCharge($event, i)" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true required>
+                            <option value="item.charge">{{item.charge}}</option>
+                            <option value ="Mensual">Mensual</option>
+                            <option value ="Anual">Anual</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 class="customSelectSingle" (valueChanged)="valueChangedProductDuration($event, i)" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true required>
+                            <option value="item.duration">{{item.duration}}</option>
+                            <option value ="9 meses">9 meses</option>
+                            <option value ="12 meses">12 meses</option>
+                            <option value ="36 meses">36 meses</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 class="customSelectSingle" (valueChanged)="valueChangedProductStatus($event, i)" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true required>
+                            <option value="item.status">{{item.status}}</option>
+                            <option value ="Activo">Activo</option>
+                            <option value ="Vencida">Vencida</option>
+                          </select2>
+                        </td>
+                      </tr>
+                      <ng-template [ngIf]="productsList.length < 1">
+                          <tr *ngFor="let item of tableListArrayDummi">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <input type="text" class="form-control input-sm">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                              <input type="text" class="form-control input-sm">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                          </tr>
+                        </ng-template>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="section-footer">
+                <div class="row window-body-margin">
+                  <div class="col-md-9 hidden-md-down">
+                  </div>
+                  <div class="col-md-3 col-sm-6">
+                    <button type="button" routerLink="/pages/usersControl/clients-products" (click) ="toggle(true, null)" class="btn btn-primary window-btn-size button-border-red">Cancelar</button>
+                    <button type="submit" class="btn btn-primary window-btn-size border" (click)="t.select('tabVehiculo')">Siguiente</button>
+                    <button type="submit" class="btn btn-primary window-btn-size border">Aceptar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="tabVehiculo" title="Vehículo/Dispositivo">
+          <ng-template ngbTabContent>
+            <div class="window-body">
+              <div class="section-head">
+                <p class="section-title" *ngIf="!editar">CREAR PEDIDO</p>
+                <hr class="window-section-space">
+                <label class=" window-bold-style">Información del Vehículo/Dispositivo</label>
+              </div>
+              <div class="section-body">
+                <div class="table-responsive table-style-motum">
+                  <table class="table table-striped">
+                    <thead class="thead-light">
+                      <tr class="m-0">
+                        <th>Consecutivo</th>
+                        <th>Cantidad</th>
+                        <th>Plan Hardware</th>
+                        <th>Producto</th>
+                        <th>Cargo</th>
+                        <th>Duración</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of productsList; let i = index" (click)="setClickedRowVehicleDispositive(item, i)" [class.active]="i == selectedRowVehicleDispositive">
+                        <td>{{i}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.plan}}</td>
+                        <td>{{item.product}}</td>
+                        <td>{{item.charge}}</td>
+                        <td>{{item.duration}}</td>
+                        <td>{{item.status}}</td>
+                      </tr>
+                      <ng-template [ngIf]="productsList.length < 1">
+                          <tr *ngFor="let item of tableListArrayDummi">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <input type="text" class="form-control input-sm">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                              <input type="text" class="form-control input-sm">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                          </tr>
+                        </ng-template>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="window-section-double-space"></div>
+                <div class="table-responsive table-style-motum-w-head">
+                  <table class="table table-striped">
+                    <thead>
+                      <!-- <tr class="thead-motum-gray table-no-border">
+                        <th COLSPAN=1>consecutivo</th>
+                        <th COLSPAN=3>{{pedidoSelected.quantity}} {{pedidoSelected.product}}</th>
+                        <th COLSPAN=3>{{pedidoSelected.plan}}</th>
+                        <th COLSPAN=2>{{pedidoSelected.duration}}</th>
+                      </tr> -->
+                      <tr class="thead-motum-gray table-no-border">
+                        <th COLSPAN=8>Vehículo</th>
+                        <th COLSPAN=4>Dispositivo</th>
+                      </tr>
+                      <tr class="thead-motum-light-gray">
+                        <th>Número</th>
+                        <th>Marca*</th>
+                        <th>Modelo*</th>
+                        <th>Año</th>
+                        <th COLSPAN=2>VIN</th>
+                        <th>Placas*</th>
+                        <th>Económico</th>
+                        <th>Fabricante*</th>
+                        <th>Modelo*</th>
+                        <th>Variante</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of listVehicleDispositive; let i = index;">
+                        <td>
+                          {{i}}
+                        </td>
+                        <td>
+                          <select2 (valueChanged)="valueChangedVehicleBrand($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.vehicle.brand">{{item.vehicle.brand}}</option>
+                            <option value="Kenworth">Kenworth</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="Test">Test</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 (valueChanged)="valueChangedVehicleModel($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.vehicle.model">{{item.vehicle.model}}</option>
+                            <option value="T600">T600</option>
+                            <option value="D12">D12</option>
+                            <option value="T800">T800</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 (valueChanged)="valueChangedVehicleYear($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.vehicle.year">{{item.vehicle.year}}</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                          </select2>
+                        </td>
+                        <td COLSPAN=2>
+                          <input [(ngModel)]="listVehicleDispositive[i].vehicle.vin" type="text" class="form-control input-sm" required>
+                        </td>
+                        <td>
+                          <input [(ngModel)]="listVehicleDispositive[i].vehicle.plates" type="text" class="form-control input-sm" required>
+                        </td>
+                        <td>
+                          <input [(ngModel)]="listVehicleDispositive[i].vehicle.economic" type="text" class="form-control input-sm" required>
+                        </td>
+                        <td>
+                          <select2 (valueChanged)="valueChangedDispositiveBuilder($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.dispositive.builder">{{item.dispositive.builder}}</option>
+                            <option value="Tecnomotum">Tecnomotum</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 (valueChanged)="valueChangedDispositiveModel($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.dispositive.model">{{item.dispositive.model}}</option>
+                            <option value="ECM">ECM</option>
+                            <option value="ECM 2.0">ECM 2.0</option>
+                            <option value="Satelital">Satelital</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 (valueChanged)="valueChangedDispositiveVariant($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.dispositive.variant">{{item.dispositive.variant}}</option>
+                            <option value="E">E</option>
+                            <option value="I">I</option>
+                          </select2>
+                        </td>
+                        <td>
+                          <select2 (valueChanged)="valueChangedDispositiveStatus($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.dispositive.status">{{item.dispositive.status}}</option>
+                            <option value="Facturado">Facturado</option>
+                            <option value="Borrador">Borrador</option>
+                          </select2>
+                        </td>
+                      </tr>
+                      <ng-template [ngIf]="listVehicleDispositive.length < 1">
+                          <tr *ngFor="let item of tableListArrayDummi">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <input type="text" class="form-control input-sm">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                              <input type="text" class="form-control input-sm">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                          </tr>
+                        </ng-template>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="section-footer">
+                <div class="row window-body-margin">
+                  <div class="col-md-8 hidden-md-down">
+                  </div>
+                  <div class="col-md-4 col-sm-6">
+                    <button type="button" routerLink="/pages/usersControl/clients-products" (click) ="toggle(true, null)" class="btn btn-primary window-btn-size button-border-red">Cancelar</button>
+                    <button type="button" class="btn btn-primary window-btn-size button" (click)="t.select('tabProducto')">Atrás</button>
+                    <button type="submit" class="btn btn-primary window-btn-size" (click)="t.select('tabAccesorios')">Siguiente</button>
+                    <button type="submit" class="btn btn-primary window-btn-size">Aceptar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="tabAccesorios" title="Accesorios">
+          <ng-template ngbTabContent>
+            <div class="window-body">
+              <div class="section-head">
+                <p class="section-title" *ngIf="!editar">CREAR PEDIDO</p>
+                <hr class="window-section-space">
+                <label class="window-section-space window-bold-style">Información de Accesorios</label>
+              </div>
+              <div class="section-body">
+                <div class="table-responsive table-style-motum-w-head">
+                  <table class="table table-striped" *ngFor="let item of productsList; let i = index;">
+                    <thead>
+                      <!-- <tr class="thead-motum-gray table-no-border">
+                        <th COLSPAN=1>{{i}}</th>
+                        <th COLSPAN=2>{{item.quantity}} {{item.product}}</th>
+                        <th COLSPAN=2>{{item.plan}}</th>
+                        <th COLSPAN=1>{{item.duration}}</th>
+                      </tr> -->
+                      <tr class="thead-motum-gray table-no-border">
+                        <th COLSPAN=8>Vehículo</th>
+                      </tr>
+                      <tr class="thead-motum-light-gray">
+                        <th>Número</th>
+                        <th>Marca*</th>
+                        <th>Modelo*</th>
+                        <th>Año</th>
+                        <th COLSPAN=2>VIN</th>
+                        <th>Placas*</th>
+                        <th>Económico</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item2 of item.listVehicleDispositive; let i1 = index;" (click)="setClickedRowAccessories(item2, i, i1)" [class.active]="i+''+i1 == selectedRowAccessories">
+                          <td>{{item2.vehicle.number}}</td>
+                          <td>{{item2.vehicle.brand}}</td>
+                          <td>{{item2.vehicle.model}}</td>
+                          <td>{{item2.vehicle.year}}</td>
+                          <td COLSPAN=2>{{item2.vehicle.vin}}</td>
+                          <td>{{item2.vehicle.plates}}</td>
+                          <td>{{item2.vehicle.economic}}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <table class="table table-striped" *ngIf="productsList.length < 1">
+                    <thead>
+                      <tr class="thead-motum-gray table-no-border">
+                        <th COLSPAN=8>Vehículo</th>
+                      </tr>
+                      <tr class="thead-motum-light-gray">
+                        <th>Número</th>
+                        <th>Marca*</th>
+                        <th>Modelo*</th>
+                        <th>Año</th>
+                        <th COLSPAN=2>VIN</th>
+                        <th>Placas*</th>
+                        <th>Económico</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <ng-template [ngIf]="productsList.length < 1">
+                            <tr *ngFor="let item of tableListArrayDummi">
+                              <td>
+                                <input type="text" class="form-control input-sm">
+                              </td>
+                              <td>
+                                <input type="text" class="form-control input-sm">
+                              </td>
+                              <td>
+                                <input type="text" class="form-control input-sm">
+                              </td>
+                              <td>
+                                <input type="text" class="form-control input-sm">
+                              </td>
+                              <td COLSPAN=2>
+                                <input type="text" class="form-control input-sm">
+                              </td>
+                              <td>
+                                <input type="text" class="form-control input-sm">
+                              </td>
+                              <td>
+                                <input type="text" class="form-control input-sm">
+                              </td>
+                            </tr>
+                          </ng-template>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="window-section-double-space"></div>
+                <div class="table-responsive table-style-motum-w-head">
+                  <table class="table table-striped">
+                    <thead>
+                      <!-- <tr class="thead-motum-gray table-no-border">
+                        <th>{{vehicleSelected.vehicle.number}}</th>
+                        <th>{{vehicleSelected.vehicle.brand}}</th>
+                        <th>{{vehicleSelected.vehicle.model}}</th>
+                        <th>{{vehicleSelected.vehicle.year}}</th>
+                        <th>{{vehicleSelected.vehicle.plates}}</th>
+                      </tr> -->
+                      <tr class="thead-motum-gray table-no-border">
+                        <th COLSPAN=6>Accesorios</th>
+                      </tr>
+                      <tr class="thead-motum-light-gray">
+                        <th COLSPAN=1>Número</th>
+                        <th COLSPAN=1>Cantidad</th>
+                        <th COLSPAN=2>Producto</th>
+                        <th COLSPAN=2>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of listAccessories; let i = index;">
+                        <td COLSPAN=1>
+                          {{i}}
+                        </td>
+                        <td COLSPAN=1>
+                          <input type="number" class="form-control input-sm" required>
+                        </td>
+                        <td COLSPAN=2>
+                          <select2 (valueChanged)="valueChangedVehicleAccProduct($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.product">{{item.product}}</option>
+                            <option value="Ingnición">Ingnición</option>
+                            <option value="Botón de pánico">Botón de pánico</option>
+                            <option value="Sensor de puertas">Sensor de puertas</option>
+                          </select2>
+                        </td>
+                        <td COLSPAN=2>
+                          <select2 (valueChanged)="valueChangedVehicleAccProduct($event, i)" class="customSelectSingle" ngDefaultControl [options]="options" [width]="'100%'" [cssImport]=true  required>
+                            <option value="item.status">{{item.status}}</option>
+                            <option value="Capturado">Capturado</option>
+                            <option value="Instalado">Instalado</option>
+                          </select2>
+                        </td>
+                      </tr>
+                      <ng-template [ngIf]="listAccessories.length < 1">
+                          <tr *ngFor="let item3 of tableListArrayDummi">
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td COLSPAN=2>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                            <td COLSPAN=2>
+                              <input type="text" class="form-control input-sm">
+                            </td>
+                          </tr>
+                        </ng-template>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="section-footer">
+                <div class="row window-body-margin">
+                  <div class="col-md-9 hidden-md-down">
+                  </div>
+                  <div class="col-md-3 col-sm-6">
+                    <button type="button" routerLink="/pages/usersControl/clients-products" (click) ="toggle(true, null)" class="motum-btn-delete btn btn-primary window-btn-size button-border-red">Cancelar</button>
+                    <button type="button" class="btn btn-primary window-btn-size button" (click)="t.select('tabVehiculo')">Atrás</button>
+                    <button type="submit" class="btn btn-primary window-btn-size border">Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title"> Ruta de la orden</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <agm-map>
+          <agm-map-ruote [origin]="puntoInicial" [destination]="puntoFinal" [waypoints]="ruta">
+          </agm-map-ruote>
+        </agm-map>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button> -->
+      </div>
+</ng-template>
+    <!-- vgr para asignar colores clase = table-travel-matrix blue -->
+<div class="col-md-12 col-sm-12 col-lg-12" align = "center" class="ag-table" >
+  <!-- <div style="position: relative;">
+    <button class="btn-secondary" (click)="saveState()">Guardar configuración</button>
+  </div>
+  <br> -->
+  <div style="position: relative; height: {{ widthTable }};">
+      <ag-grid-angular style="position: absolute; width: 97.5%; height: 500px" class="ag-fresh"
+                   [gridOptions] = "gridOptions"
+                   (cellClicked)="onCellClicked($event,content)"
+                   (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+  </div>
+</div>
+<div  style="height: 500px"></div>
+<!-- <div class="col-md-12 col-sm-12 col-lg-12" class="ag-table" >
+  <div style="position: relative;  width: {{ widthTable }}px; height: 550px;">
+
+      <ag-grid-angular style="position: absolute; height: 100%; width: 97%;" class="ag-fresh"
+                   [gridOptions] = "gridOptions"
+                   (cellClicked)="onCellClicked($event,content)">
+      </ag-grid-angular>
+  </div>
+</div> -->

@@ -1,0 +1,293 @@
+@font-face {
+  font-family: 'MotumIcons';
+  src: url('/assets#{$fonts-root}themeMotum/iconsFont/font/motumicon.eot?2ooha1');
+  src: url('/assets#{$fonts-root}themeMotum/iconsFont/font/motumicon.eot?2ooha1#iefix') format('embedded-opentype'),
+  url('/assets#{$fonts-root}themeMotum/iconsFont/font/motumicon.woff?2ooha1') format('woff'),
+  url('/assets#{$fonts-root}themeMotum/iconsFont/font/motumicon.ttf?2ooha1') format('truetype'),
+  url('/assets#{$fonts-root}themeMotum/iconsFont/font/motumicon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.motum-i {
+  display: inline-block;
+  font-family: "MotumIcons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // --------------
+  // Icons sizes
+  // --------------
+  &.tm-lg {
+    font-size: 1.33333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+  }
+  &.tm-1x {
+    font-size: 1.1em;
+  }
+  &.tm-2x {
+    font-size: 2em;
+  }
+  &.tm-3x {
+    font-size: 3em;
+  }
+  &.tm-4x {
+    font-size: 4em;
+  }
+  &.tm-5x {
+    font-size: 5em;
+  }
+  &.tm-fw {
+    width: 1.28571429em;
+    text-align: center;
+  }
+
+  // -------------
+  // Icons classes
+  // -------------
+  &.tm-u {
+    &.tm-trash:before {
+      content: '\e910';
+    }
+    &.tm-users:before {
+      content: '\e912';
+    }
+    &.tm-triangle-down:before {
+      content: '\e905';
+    }
+    &.tm-triangle-up:before {
+      content: '\e906';
+    }
+    &.tm-search:before {
+      content: '\e92c';
+    }
+    &.tm-able:before,
+    &.tm-circle-able:before {
+      content: '\e907';
+    }
+    &.tm-edit:before,
+    &.tm-pencil:before{
+      content: '\e914';
+    }
+    &.tm-disable:before,
+    &.tm-circle-disable:before{
+      content: '\e908';
+    }
+    &.tm-checkbox:before,
+    &.tm-checkbox-unchecked:before{
+      content: '\e90f';
+    }
+    &.tm-new-user:before,
+    &.tm-user-avatar:before{
+      content: '\e916';
+    }
+  }
+
+  &.tm-mu {
+    &.tm-dashboard:before {
+      content: '\e937';
+    }
+    &.tm-circle-three-points,
+    &.tm-logistic,
+    &.tm-logistica:before {
+      content: '\e91b';
+    }
+    &.tm-three-starts:before,
+    &.tm-ranking:before {
+      content: '\e932';
+    }
+    &.tm-mantenimiento:before,
+    &.tm-maintenance:before,
+    &.tm-tools:before {
+      content: '\e92a';
+    }
+    &.tm-reports:before,
+    &.tm-document:before,
+    &.tm-reportes:before {
+      content: '\e938';
+    }
+    &.tm-mensajes:before,
+    &.tm-message:before,
+    &.tm-email:before {
+      content: '\e930';
+    }
+    &.tm-unidades:before,
+    &.tm-track:before,
+    &.tm-admin-units:before {
+      content: '\e923';
+    }
+    &.tm-steering-wheel:before,
+    &.tm-drivers:before,
+    &.tm-choferes:before {
+      content: '\e92f';
+    }
+    &.tm-usuarios:before,
+    &.tm-users:before {
+      content: '\e922';
+    }
+    &.tm-panel:before,
+    &.tm-alert-panel:before,
+    &.tm-incident-panel:before {
+      content: '\e93a';
+    }
+    &.tm-marker:before,
+    &.tm-monitoring:before,
+    &.tm-monitoreo:before {
+      content: '\e934';
+    }
+    &.tm-activity:before,
+    &.tm-table-activity:before,
+    &.tm-actividad:before {
+      content: '\e93c';
+    }
+    &.tm-fleet-health:before,
+    &.tm-search-health:before,
+    &.tm-salud:before {
+      content: '\e93e';
+    }
+    &.tm-geoSmart:before {
+      content: '\e93b';
+    }
+    &.tm-network-link:before,
+    &.tm-red:before {
+      content: '\e939';
+    }
+    &.tm-logo-m:before,
+    &.tm-logo-in:before {
+      content: '\e933';
+    }
+    &.tm-logo-motum:before,
+    &.tm-logo-out:before {
+      content: '\e942';
+    }
+    &.tm-admin-clients:before {
+      content: '\e915';
+    }
+    &.tm-group-users:before,
+    &.tm-admin-users:before {
+      content: '\e912';
+    }
+    &.tm-admin-licenses:before {
+      content: '\e943';
+    }
+    &.tm-square-group:before,
+    &.tm-admin-groups:before {
+      content: '\e940';
+    }
+    &.tm-admin-sims:before {
+      content: '\e93d';
+    }
+    &.tm-box-services:before,
+    &.tm-admin-services:before {
+      content: '\e941';
+    }
+    &.tm-virtual-reality:before,
+    &.tm-admin-motum:before {
+      content: '\e93f';
+    }
+  }
+
+  &.tm-eye-on:before {
+    content: "\e911"
+  }
+  &.tm-eye-off:before {
+    content: "\e913"
+  }
+  &.tm-alert:before {
+    content: "\e92d";
+  }
+  &.tm-plus:before {
+    content: "\e90c"
+  }
+  &.tm-plus-bold:before {
+    content: "\e909"
+  }
+  &.tm-check:before {
+    content: "\e90a"
+  }
+  &.tm-ellipsis-v:before,
+  &.tm-dots-vertical:before {
+    content: "\e90b"
+  }
+  &.tm-close-bold:before,
+  &.tm-x-bold:before {
+    content: "\e90d";
+  }
+  &.tm-v-down:before {
+    content: "\e90e";
+  }
+  &.tm-users-avatar:before {
+    content: "\e917";
+  }
+  &.tm-client-avatar:before {
+    content: "\e918";
+  }
+  &.tm-network:before {
+    content: "\e919";
+  }
+  &.tm-keyboard:before,
+  &.tm-on-computer:before{
+    content: "\e91a";
+  }
+  &.tm-opt-filter:before,
+  &.tm-filters:before {
+    content: "\e91c";
+  }
+  &.tm-reload:before,
+  &.tm-update:before{
+    content: "\e91d";
+  }
+  &.tm-happy-face:before,
+  &.tm-emoji:before {
+     content: "\e91e";
+  }
+  &.tm-compass-rose:before {
+    content: "\e91f";
+  }
+  &.tm-minus:before {
+    content: "\e920";
+  }
+  &.tm-on-cellphone:before,
+  &.tm-cellphone:before {
+    content: "\e921";
+  }
+  &.tm-car:before {
+    content: "\e924";
+  }
+  &.tm-tack:before {
+    content: "\e925";
+  }
+  &.tm-send:before {
+    content: "\e926";
+  }
+  &.tm-cog:before {
+    content: "\e927";
+  }
+  &.tm-clip:before {
+    content: "\e928";
+  }
+  &.tm-bolt:before {
+    content: "\e929";
+  }
+  &.tm-expand:before {
+    content: "\e92b";
+  }
+  &.tm-markers:before {
+    content: "\e92e";
+  }
+  &.tm-close:before,
+  &.tm-x:before {
+    content: "\e931";
+  }
+  &.tm-marker-in:before {
+    content: "\e935";
+  }
+}

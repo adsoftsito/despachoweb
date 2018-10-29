@@ -1,0 +1,359 @@
+@import './motumVariables';
+
+$motum-official-grey-1: $motum-grey-group-active;
+$motum-official-grey-2: #c4c4c4;
+$motum-official-grey-3: #f1f1f1;
+$motum-official-blue-1: $motum-blue-partner;
+$motum-official-green-1: $motum-light-green;
+
+
+
+@mixin motum-theme($themeName) {
+
+  $cardinal-direction: ('N','NE','E','SE','S','SW','W','NW');
+  $degrees: (0, 45, 90, 135, 180, 225, 270, 315);
+
+  // --------------------
+  // CONTAINERS
+  // --------------------
+  .#{$themeName}-cover-all-container {
+    height: calc(100vh - 66px);
+  }
+  .#{$themeName}-relative-container {
+    position: relative;
+  }
+
+  // ----------------------
+  // GRID PROPERTIES
+  // ----------------------
+  .#{$themeName}-grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    &.m-cover {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  $grid-division: 12;
+
+  .#{$themeName}-grid-item {
+    // Default values
+    grid-row-end: span 1;
+    grid-column-end: span 1;
+
+    @while $grid-division > 0 {
+      // Rows to cover
+      &.m-row-#{$grid-division} {
+        grid-row-end: span $grid-division;
+      }
+      //Columns to cover
+      &.m-column-#{$grid-division} {
+        grid-column-end: span $grid-division;
+      }
+      //Start on column
+      &.m-start-col-#{$grid-division} {
+        grid-column-start: $grid-division;
+      }
+      //Start on row
+      &.m-start-row-#{$grid-division} {
+        grid-row-start: $grid-division;
+      }
+      $grid-division: $grid-division - 1;
+    }
+  }
+
+
+  .#{$themeName}-btn-create {
+    height: 26.18px;
+    width: 113.201px;
+    font-size: 10.85px;
+    margin-top: -1.602px;
+    border-radius: 8px;
+  }
+  .#{$themeName}-btn-create:hover {
+    background: #fff0 !important;
+    border-color: $motum-official-green-1 !important;
+    transform: scale(1) !important;
+    color: $motum-official-green-1 !important;
+  }
+  .#{$themeName}-btn-create:focus {
+    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0) !important;
+  }
+
+  .#{$themeName}-search-input {
+    input {
+      border: 1px solid #fff !important;
+      background-color: $motum-official-grey-3 !important;
+    }
+
+    input:focus {
+      border: 1px solid $motum-official-blue-1 !important;
+      background-color: #fff !important;
+    }
+
+    i {
+      line-height: 27px !important;
+      width: 60px !important;
+      color: $motum-official-grey-1 !important;
+    }
+
+    input:focus + i {
+      color: $motum-official-blue-1 !important;
+    }
+
+    i:before {
+      font-size: 20px;
+    }
+    .search-input-form{
+      height: 26.18px;
+      margin-top: 5px;
+      font-size: 10.85px;
+      border-radius: 8px;
+    }
+    .font-size-search{
+      font-size: 15px;
+    }
+  }
+  .#{$themeName}-margin-bottom-one{
+    &.section-head {
+      margin-bottom: -5.915px !important;
+    }
+  }
+  .#{$themeName}-margin-bottom-two{
+    &.section-head {
+      margin-bottom: -24.915px !important;
+    }
+  }
+  .#{$themeName}-hr-head-form{
+    margin-top: 1.865px;
+    margin-bottom: 8.085px;
+  }
+  .#{$themeName}-content-left-form{
+    margin-left: 0.914px;
+    padding-right: 60px;
+  }
+  .#{$themeName}-content-right-form{
+    margin-left: 37px;
+  }
+  .#{$themeName}-content-right-form-interface{
+    margin-top: 18px;
+    margin-left: 37px;
+  }
+  .#{$themeName}-input-form{
+    &.has-success .form-control,
+    &.has-success .form-control-feedback {
+      color: $motum-black-partner;
+    }
+    &.has-success .form-control {
+      border: 1.4px solid $motum-border-input;
+    }
+    .form-control {
+      border: 1.4px solid $motum-border-input;
+    }
+    .form-control-feedback {
+      top: -8px;
+    }
+    .input-sm {
+      font-size: 10px;
+      height: 19.8px;
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+    .form-control{
+      padding-left: 0.2rem;
+    }
+    &.has-success .form-control:focus{
+      border-color: $motum-blue !important;
+    }
+  }
+  .#{$themeName}-label-form{
+    color: #000;
+    line-height: 0;
+    margin-top: 5.542px;
+
+    &.space{
+      margin-top: 16.006px;
+    }
+    &.space-interface{
+      margin-top: 15.006px;
+    }
+    &.space-date-format{
+      margin-top: 2.006px;
+    }
+    &.moreSpace{
+      margin-top: 8.006px;
+    }
+    &.radioNameUser{
+      margin-top: 1.914px;
+    }
+  }
+  .#{$themeName}-hr-separator{
+    border-right: 1px solid;
+    border-right-color: rgba(197, 197, 197, 0.7);
+    height: 455px;
+    position: absolute;
+    left: 50%;
+    top: 96px;
+  }
+  .#{$themeName}-btn{
+    color: $motum-grey-partner !important;
+    background-color: $motum-white !important;
+    border-radius: 12px !important;
+    border: 1px solid $motum-grey-partner !important;
+    width: 47.672px;
+    height: 15.994px;
+    font-size: 8px !important;
+    padding: 0 !important;
+    line-height: .4px;
+
+    &.cancel{
+      color: $motum-red !important;
+      border: 1px solid $motum-red !important;
+    }
+    &.next{
+      border: 0px solid !important;
+      color: $motum-white !important;
+      background: $motum-blue-partner !important;
+    }
+    &.save{
+      border: 0px solid !important;
+      color: $motum-white !important;
+      background: $motum-blue !important;
+    }
+  }
+
+  .#{$themeName}-title-form{
+    &.section-title {
+      margin-bottom: 5px !important;
+      font-size: 12px !important;
+    }
+  }
+
+  .#{$themeName}-subtitle-form{
+    &.window-bold-style{
+      font-size: 11px !important;
+    }
+    &.in-form{
+      margin-left: -24px
+    }
+    &.right{
+      padding-left: 15px;
+    }
+  }
+
+
+  .#{$themeName}-radio-btn{
+    color: #000;
+    .overlay {
+      width: 12px;
+      height: 12px;
+      margin-right: 8px;
+      padding-top: 3px;
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      border: 1px solid #aaa;
+      border-radius: 100%;
+      vertical-align: middle;
+      padding-left: 2.6px;
+    }
+    input {
+      display: none;
+    }
+    input:checked + span:before {
+      width: 0.7em;
+      height: 0.7em;
+      content: " ";
+      background-color: #2244d7;
+      border-radius: 100%;
+      margin-left: -0.05rem;
+      position: absolute;
+      margin-top: -0.06rem;
+    }
+  }
+  .#{$themeName}-radio-btn-billing{
+    color: #000;
+    .overlay {
+      width: 12px;
+      height: 12px;
+      margin-right: 8px;
+      padding-top: 3px;
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      border: 1px solid #aaa;
+      border-radius: 100%;
+      vertical-align: middle;
+      padding-left: 2.6px;
+    }
+    input {
+      display: none;
+    }
+    input:checked + span:before {
+      width: 0.7em;
+      height: 0.69em;
+      content: " ";
+      background-color: #2244d7;
+      border-radius: 100%;
+      margin-left: -0.05rem;
+      position: absolute;
+      margin-top: -0.067rem;
+    }
+  }
+  .#{$themeName}-btn-group{
+    width: 100% !important;
+    .btn.active{
+      color: $motum-white;
+      background-color: $motum-grey-group-active !important;
+      border-color: $motum-black-partner;
+    }
+    .#{$themeName}-botton{
+      border-radius: 5px !important;
+      font-size: 9px !important;
+      border-width: 1px;
+      border-color: $motum-grey-border-group;
+      color: $motum-black-partner;
+      background-color: $motum-grey-group;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: 100%;
+
+      &.button.btn.btn-default:hover{
+        background-color: #bdb3b3 !important;
+      }
+    }
+    .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle){
+      border-bottom-right-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+    }
+    .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child){
+      border-bottom-left-radius: 0 !important;
+      border-top-left-radius: 0 !important;
+    }
+    .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle){
+      border-radius: 0 !important;
+    }
+    button.btn.btn-default:active, button.btn.btn-default:target{
+      background-color: $motum-grey-partner !important; //color de btn active
+      color: #fff !important;
+    }
+  }
+
+  @each $label in $cardinal-direction{
+    $i: index( $cardinal-direction , $label );
+    .#{$themeName}-rotate-#{$label}{
+        transform: rotate(#{nth($degrees , $i )}deg);
+        -webkit-transform: rotate(#{nth($degrees , $i )}deg);
+        -ms-transform: rotate(#{nth($degrees , $i )}deg);
+    }
+  }
+
+  //----------------
+  // SweetAlert2
+  //----------------
+  body.swal2-shown.swal2-height-auto{
+    height: 100px !important;
+  }
+}

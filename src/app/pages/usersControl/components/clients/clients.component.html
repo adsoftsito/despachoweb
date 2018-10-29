@@ -1,0 +1,113 @@
+<ng-template #confirmCreateOrder let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <div class="motum-modal-icon">
+            <i class="ion-checkmark-round changeofproperties"></i>
+        </div>
+        <h5 class="modal-title">{{'pages.welcomewindow.header' | translate }}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>{{'pages.welcomewindow.content' | translate }}</p>
+        <p>{{'pages.welcomewindow.contents' | translate }}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn motum-btn-cancel chagepropertiesbtncancel" (click)="c(false)">{{'pages.welcomewindow.cancel' | translate }}</button>
+        <button type="button" class="btn motum-btn-confirm chagepropertiesbtn" (click)="c(true)">{{'pages.welcomewindow.createorder' | translate }}</button>
+    </div>
+</ng-template>
+<ba-card>
+    <router-outlet></router-outlet>
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-lg-8"> <!--se cambio de 8 a 10 last-->
+
+            <div>
+                <div class="btnCreateClients"> <!--se cambio de 4 a 2 last-->
+                    <button class="btn btn-primary btn-with-icon motum-btn-create"
+                            routerLink="/pages/usersControl/clients-products/create"
+                            (click)="createClientProduct()"
+                            type="button">
+                        <i class="ion-plus"></i>
+                        {{ newClient | translate }}
+                    </button>
+                </div>
+
+
+                <div class="checkboxClients"> <!--no se cambio-->
+
+                    <form class="row form-inline align-items-center">
+                        <div class="form-group col-sm-1">
+                            <div class="checkbox">
+                                <ba-checkbox [(ngModel)]="isSelectable"
+                                             [label]="' '"
+                                             (change)="makeSelectableRows()"
+                                             [ngModelOptions]="{standalone: true}">
+                                </ba-checkbox>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-1 animated fadeIn"
+                             (click)="onRemoveSelected()"
+                             *ngIf="isSelectable">
+                            <i class="motum-i tm-u tm-trash table-tools-icons-margin"></i>
+                        </div>
+
+                        <div class="form-group col-sm-1 animated fadeIn"
+                             *ngIf="isSelectable"
+                             (click)="onAbleDisableSelected(false)">
+                            <i class="motum-i tm-u tm-disable table-tools-icons-margin"></i>
+                        </div>
+
+                        <div class="form-group col-sm-1 animated fadeIn"
+                             *ngIf="isSelectable"
+                             (click)="onAbleDisableSelected(true)">
+                            <i class="motum-i tm-u tm-able table-tools-icons-margin"></i>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-lg-4"> <!--se cambio de 4 a 2 last-->
+
+            <form class="row form-inline">
+                <div class="form-group col-sm-12 has-success has-feedback motum-search-input">
+                    <input id="inputSuccess2"
+                           type="text"
+                           class="form-control search-input-form"
+                           [placeholder]=" search | translate "
+                           aria-describedby="inputSuccess2Status">
+                    <i class="motum-i tm-u tm-search form-control-feedback font-size-search" aria-hidden="true" (click)="unClick()"></i>
+                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <hr class="hrClients">
+    <div class="row">
+        <!--Table-->
+        <div class="col-md-12 col-sm-12 col-lg-12" >
+            <ag-grid-angular style="width: 100%; height: calc(100vh - 190px)"
+                             class="ag-theme-material"
+                             [gridOptions] = "gridOptions"
+                             [rowSelection]="rowSelection"
+
+                             [icons]="customIcons"
+
+                             [suppressRowClickSelection]="true"
+                             [suppressAggFuncInHeader]="true"
+                             [enableColResize]="true"
+                             [pagination]="true"
+                             [animateRows]="true"
+
+                             (cellClicked)="onCellClicked($event)"
+                             (gridReady)="onGridReady($event)">
+            </ag-grid-angular>
+
+        </div>
+    </div>
+</ba-card>

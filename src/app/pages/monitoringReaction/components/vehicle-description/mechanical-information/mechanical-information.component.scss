@@ -1,0 +1,272 @@
+@import "../../../../../theme/sass/motumVariables";
+
+
+.titlesection{
+    padding-left: 42.8883px;
+    padding-right: 42.883px; 
+    margin-top: 15.67px; 
+    color: gray;
+    font-family: $motum-font-family-rubik-medium;
+    font-size: 11px;
+}
+
+b{
+    color: #575756;
+    font-family: $motum-font-family-rubik-medium;
+    font-size: 11px;
+}
+.titletext{
+    margin-top: 10px; 
+    color: #878787 !important;
+    font-family: $motum-font-family-rubik;
+    font-size: 11px;
+}
+
+hr{
+    margin-top: 6px !important;
+    margin-bottom: 7px !important;
+    color: gray;
+}
+
+strong{
+    font-family: $motum-font-family-rubik;
+    margin-top: 10px; 
+    font-size: 11px;
+    color: #575756;
+
+}
+
+.strong-position-right-plates{
+    float: right;
+    margin-right: -15px;
+}
+
+.strong-position-right-model{
+    float: right;
+    margin-top: 0;
+    margin-right: 33px;
+}
+
+.body-secction-vehicle{
+    margin-top: 12px;
+    width: 100%;
+}
+
+.body-secction{
+    margin-top: 10px;
+}
+
+.btn-vehicle-pistachio{
+    height: 23.716px;
+    width: 100% !important;
+    background: #5ce2d7 !important;
+    border: none;
+    outline: none;
+    border-bottom-left-radius: 3px !important;
+    border-top-left-radius: 3px !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border: none !important;
+    color: $motum-black !important;
+    font-size: 11px;
+}
+
+.change-right-button{
+    height: 23.716px;
+    width: 100% !important;
+    border: none;
+    outline: none;
+    color: $motum-white;
+    border: none !important;
+    border-radius: 0px !important;
+    font-size: 11px;
+    border-bottom-right-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+}
+
+.change-button{
+    height: 23.716px;
+    width: 100% !important;
+    border: none;
+    outline: none;
+    color: $motum-black;
+    border: none !important;
+    border-radius: 0px !important;
+    font-size: 11px;
+}
+.color-yellow{
+    background-color: #fff003;
+}
+.color-red{
+    background-color: $motum-red;
+}
+
+.color-pistachio{
+    background-color: #5ce2d7;
+}
+
+.color-green{
+    background-color: #33df69;
+}
+
+
+
+.btn-position-right{
+    float: right;
+    width: 60px;
+    margin-top: 17px;
+    margin-right: 41.172px;
+    font-size: 9px;
+    font-family:  $motum-font-family-rubik;
+}
+
+.section-flex-config{
+   display: flex;
+   flex-direction: column;
+   justify-content:space-between;
+   height: calc(100vh - 238px) !important;
+   width: 100%;
+}
+
+.section-flex-end-footter{
+    flex-grow: 1;
+    max-height: 40px;
+    padding-bottom: 15px;
+}
+
+.section-flex{
+    flex-grow: 2;
+}
+
+.section-flex-btn-justify{
+    flex-grow: 3;
+    justify-content:space-around;
+}
+
+.scroll-content-info{
+    height: 100%;
+    overflow-y: auto;
+    
+}
+
+.change-property-img{
+    width: 25px;
+    height: 25px;
+}
+
+
+.chage-property-btn-left{
+    margin-right: 11px;
+    width: 70px; 
+    outline: none;
+ }
+
+ .position-bottom-group{
+    float: right;
+    font-size: 9px;
+    margin-top: 15px;
+    font-family: $motum-font-family-rubik;
+}
+.chage-property-btn-right{
+    margin-right: 11px;
+    width: 70px; 
+    margin-right: 41.172px;
+    outline: none;
+ }
+
+ .chage-property-btn-right-negative{
+    margin-right: 11px;
+    width: 70px; 
+    margin-right: 41.172px;
+    outline: none;
+    background-color: $motum-grey-partner !important;
+ }
+
+ .positive{
+    margin-right: 11px;
+    width: 70px; 
+    margin-right: 41.172px;
+    outline: none;
+    color: $motum-blue !important;
+ }
+
+
+ .position-right-text{
+    float: right;
+    margin-top: -4px;
+    margin-right: -8px;
+
+}
+
+.position-left-text{
+    float: left;
+    margin-top: -4px;
+    margin-right: 9px;
+}
+
+.colorimetry-indicator{
+    width: 10px;
+    height: 10px;
+    outline: none;
+    border: none;
+    margin-right: 5px;
+}
+
+.position-left-indicator{
+    float: left;
+    margin-left: 13px;
+}
+
+.position-right-indicator{
+    float: right;
+    margin-right: 18px;
+}
+
+.left-data-text{
+    float: left;
+    right: 10px;
+    width: 125px;
+}
+
+.change-property-col-md-6{
+    padding-left: 7px !important;
+}
+
+
+.change-property-col-md-6-sm-6{
+    padding-left: 13px !important;
+}
+
+.modal-proportion{
+    width: 100% !important;
+}
+
+.modal-proportion1{
+    width: 50%;
+}
+
+.data-separator{
+    transform: rotate(90deg);
+    margin-top: -202px !important;
+    width: 73%;
+}
+
+.changeClassModal{
+    width: 50%;
+    position: absolute;
+}
+
+
+.position-container-group-btn{
+    margin-top: 15px;
+}
+
+.btn-group{
+    width: 100%;
+}
+
+.column-width{
+    -webkit-columns: 300px 2;
+    -moz-columns: 300px 2;
+         columns: 12em;
+}
