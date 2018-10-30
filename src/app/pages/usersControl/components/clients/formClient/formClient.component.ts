@@ -63,34 +63,43 @@ public optionsPermits: Select2Options;
 //translate
 title = 'pages.userControl.clients.formClient.title';
 edit = 'pages.userControl.clients.formClient.edit';
-client = 'pages.userControl.clients.formClient.client';
-billing = 'pages.userControl.clients.formClient.billing';
-account = 'pages.userControl.clients.formClient.account';
-permissions = 'pages.userControl.clients.formClient.permissions';
-interface = 'pages.userControl.clients.formClient.interface';
+
+viaje = 'pages.logistica.clients.formClient.viaje';
+ruta = 'pages.logistica.clients.formClient.ruta';
+
+//account = 'pages.userControl.clients.formClient.account';
+//permissions = 'pages.userControl.clients.formClient.permissions';
+//interface = 'pages.userControl.clients.formClient.interface';
+
+
 editClientTrans = 'pages.userControl.clients.formClient.editClientTrans';
 createClientTrans = 'pages.userControl.clients.formClient.createClientTrans';
 companyInformation = 'pages.userControl.clients.formClient.companyInformation';
-tradeName = 'pages.userControl.clients.formClient.tradeName';
-businessName = 'pages.userControl.clients.formClient.businessName';
-rfc = 'pages.userControl.clients.formClient.rfc';
-street = 'pages.userControl.clients.formClient.street';
-outdoorNumber = 'pages.userControl.clients.formClient.outdoorNumber';
-indoorNumber = 'pages.userControl.clients.formClient.indoorNumber';
-countryRegion = 'pages.userControl.clients.formClient.countryRegion';
+
+begin = 'pages.logistica.clients.formClient.begin';
+end = 'pages.logistica.clients.formClient.end';
+operador = 'pages.logistica.clients.formClient.operador';
+unidad = 'pages.logistica.clients.formClient.unidad';
+remolque1 = 'pages.logistica.clients.formClient.remolque1';
+dolly = 'pages.logistica.clients.formClient.dolly';
+remolque2 = 'pages.logistica.clients.formClient.remolque2';
+
 postalCode = 'pages.userControl.clients.formClient.postalCode';
 state = 'pages.userControl.clients.formClient.state';
 city = 'pages.userControl.clients.formClient.city';
-colony = 'pages.userControl.clients.formClient.colony';
-delegationMunicipality = 'pages.userControl.clients.formClient.delegationMunicipality';
 landline = 'pages.userControl.clients.formClient.landline';
 numberExtension = 'pages.userControl.clients.formClient.numberExtension';
 phone = 'pages.userControl.clients.formClient.phone';
-server = 'pages.userControl.clients.formClient.server';
-sector = 'pages.userControl.clients.formClient.sector';
-marketSegment = 'pages.userControl.clients.formClient.marketSegment';
-division = 'pages.userControl.clients.formClient.division';
-employeeNumber = 'pages.userControl.clients.formClient.employeeNumber';
+
+
+beginDet = 'pages.logistica.clients.formClient.beginDet';
+endDet = 'pages.logistica.clients.formClient.endDet';
+operadorDet = 'pages.logistica.clients.formClient.operadorDet';
+unidadDet = 'pages.logistica.clients.formClient.unidadDet';
+remolque1Det = 'pages.logistica.clients.formClient.remolque1Det';
+dollyDet = 'pages.logistica.clients.formClient.dollyDet';
+remolque2Det = 'pages.logistica.clients.formClient.remolque2Det';
+
 cancel = 'pages.userControl.clients.formClient.cancel';
 back = 'pages.userControl.clients.formClient.back';
 next = 'pages.userControl.clients.formClient.next';

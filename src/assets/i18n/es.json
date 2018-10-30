@@ -383,8 +383,9 @@
             "editClientTrans": "EDITAR CLIENTE",
             "createClientTrans": "CREAR CLIENTE",
             "companyInformation": "Información de la Empresa",
-            "tradeName": "Nombre comercial",
-            "businessName": "Razón social",
+
+            "begin": "Inicio",
+            "end": "Fin",
             "rfc": "RFC",
             "street": "Calle",
             "outdoorNumber": "No. Exterior",

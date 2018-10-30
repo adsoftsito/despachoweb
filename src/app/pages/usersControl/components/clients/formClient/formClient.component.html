@@ -42,7 +42,7 @@
       </div>
       <ngb-tabset #t="ngbTabset" [justify]="'end'"  >
 
-        <ngb-tab id="tabCliente" title="{{ client | translate }}">
+        <ngb-tab id="tabCliente" title="{{ viaje | translate }}">
 
           <ng-template ngbTabContent>
             <div class="window-body">
@@ -58,68 +58,60 @@
                         <label class="window-bold-style motum-subtitle-form in-form">{{ companyInformation | translate }}</label>
                       <div class="row motum-label-form">
                         <div class="col-md-12 spaceTitle">
-                          <label for="inputComercialName">{{ tradeName | translate }}</label>
+                          <label for="inputComercialName">{{ begin | translate }}</label>
                         </div>
                         <div class=" col-md-12 col-sm-12">
                           <div class="form-group has-success motum-input-form">
-                            <input [(ngModel)]="clientModel.comercialName" type="text" class="form-control input-sm" id="inputComercialName" [ngModelOptions]="{standalone: true}" required>
+                            <input [(ngModel)]="clientModel.comercialName" type="date" class="form-control input-sm" id="inputComercialName" [ngModelOptions]="{standalone: true}" required>
+                            
                           </div>
                         </div>
                       </div>
                       <div class="row motum-label-form">
                         <div class="col-md-12">
-                          <label for="inputBusinessName">{{ businessName | translate }}</label>
+                          <label for="inputBusinessName">{{ end | translate }}</label>
                         </div>
                         <div class=" col-md-12 col-sm-12">
                           <div class="form-group has-success motum-input-form">
-                            <input [(ngModel)]="clientModel.businessName" type="text" class="form-control input-sm" id="inputBusinessName" [ngModelOptions]="{standalone: true}" required>
+                            <input [(ngModel)]="clientModel.businessName" type="date" class="form-control input-sm" id="inputBusinessName" [ngModelOptions]="{standalone: true}" required>
                           </div>
                         </div>
                       </div>
-                      <div  class="row motum-label-form">
-                        <div class="col-md-12">
-                          <label for="inputRfc">{{ rfc | translate }}</label>
-                        </div>
-                        <div class="col-md-9 col-sm-12">
-                          <div class="form-group has-success motum-input-form">
-                            <input [(ngModel)]="clientModel.rfc" type="text" class="form-control input-sm" id="inputRfc" [ngModelOptions]="{standalone: true}" required>
-                          </div>
-                        </div>
-                      </div>
-                      <div  class="row motum-label-form">
-                        <div class="col-md-12">
-                          <label for="inputStreet">{{ street | translate }}</label>
-                        </div>
-                        <div class="col-md-12 col-sm-12">
-                          <div class="form-group has-success motum-input-form">
-                            <input [(ngModel)]="clientModel.street" type="text" class="form-control input-sm" id="inputStreet" [ngModelOptions]="{standalone: true}" required>
-                          </div>
-                        </div>
-                      </div>
+
                       <div class="row motum-label-form">
-                        <div class="col-md-5" style="padding-right: 0px;">
-                          <label for="inputInternalNumberCompany">{{ outdoorNumber | translate }}</label>
-                        </div>
-                        <div class="col-md-6" style="padding-left: 17px; margin-left: -2px;">
-                          <label for="inputExternalNumberCompany">{{ indoorNumber | translate }}</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class=" col-md-4 col-sm-12">
-                          <div class="form-group has-success motum-input-form">
-                            <input [(ngModel)]="clientModel.internalNumberCompany" type="text" class="form-control input-sm" id="inputInternalNumberCompany" [ngModelOptions]="{standalone: true}" required>
+                          <div class="col-sm-9">
+                            <div class="has-success motum-input-form">
+                              <label for="inputCountry" >{{ operador | translate }}</label>
+                              <select name="" id="inputCountry" class="form-control input-sm">
+                                <option></option>
+                                <option>México</option>
+                                <option>Canadá</option>
+                                <option>Peru</option>
+                                <option>Alemania</option>
+                              </select>
+                            </div>
                           </div>
                         </div>
-                        <div class="col-md-4 col-sm-12 offset-md-1">
-                          <div class="form-group has-success motum-input-form">
-                            <input [(ngModel)]="clientModel.externalNumberCompany" type="text" class="form-control input-sm" id="inputExternalNumberCompany" [ngModelOptions]="{standalone: true}" required>
+                      
+                      <div class="row motum-label-form">
+                          <div class="col-sm-9">
+                            <div class="has-success motum-input-form">
+                              <label for="inputCountry" >{{ unidad | translate }}</label>
+                              <select name="" id="inputCountry" class="form-control input-sm">
+                                <option></option>
+                                <option>México</option>
+                                <option>Canadá</option>
+                                <option>Peru</option>
+                                <option>Alemania</option>
+                              </select>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        
                       <div class="row motum-label-form">
                         <div class="col-sm-9">
                           <div class="has-success motum-input-form">
-                            <label for="inputCountry" >{{ countryRegion | translate }}</label>
+                            <label for="inputCountry" >{{ remolque1 | translate }}</label>
                             <select name="" id="inputCountry" class="form-control input-sm">
                               <option></option>
                               <option>México</option>
@@ -130,20 +122,28 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row motum-label-form space">
-                        <div class="col-md-9">
-                          <label for="inputZipCode">{{ postalCode | translate }}</label>
-                        </div>
-                        <div class="col-md-9 col-sm-12">
-                          <div class="form-group has-success motum-input-form">
-                            <input [(ngModel)]="clientModel.zipCode" type="text" class="form-control input-sm" id="inputZipCode" [ngModelOptions]="{standalone: true}" required>
+
+                      <div class="row motum-label-form moreSpace">
+                          <div class="col-sm-12">
+                            <div class="has-success motum-input-form">
+                              <label for="inputState">{{ dolly | translate }}</label>
+                              <select name="inputState" id="inputState" class="form-control input-sm">
+                                <option></option>
+                                <option>Veracruz</option>
+                                <option>Puebla</option>
+                                <option>Puebla</option>
+                                <option>Nuevo León</option>
+                                <option>Baja California</option>
+                              </select>
+                            </div>
                           </div>
                         </div>
-                      </div>
+  
+                      
                       <div class="row motum-label-form moreSpace">
                         <div class="col-sm-12">
                           <div class="has-success motum-input-form">
-                            <label for="inputState">{{ state | translate }}</label>
+                            <label for="inputState">{{ remolque2 | translate }}</label>
                             <select name="inputState" id="inputState" class="form-control input-sm">
                               <option></option>
                               <option>Veracruz</option>
@@ -155,6 +155,7 @@
                           </div>
                         </div>
                       </div>
+<!--
                       <div class="row motum-label-form space">
                         <div class="col-sm-12">
                           <div class=" has-success motum-input-form">
@@ -167,6 +168,7 @@
                           </div>
                         </div>
                       </div>
+                    -->
                     </div>
                     <hr class="motum-hr-separator"> 
                     <div class="col-md-5 col-sm-12 motum-content-right-form-interface">
@@ -174,67 +176,96 @@
 
                         <div class="row motum-label-form">
                           <div class="col-md-12">
-                            <label for="inputColony">{{ colony | translate }}</label>
+                            <label for="inputColony">{{ beginDet | translate }}</label>
                           </div>
+                          <!--
                           <div class="col-md-12 col-sm-12">
                             <div class="form-group has-success motum-input-form">
                               <input [(ngModel)]="clientModel.colony" type="text" class="form-control input-sm" id="inputColony" [ngModelOptions]="{standalone: true}" required>
                             </div>
                           </div>
+                        -->
                         </div>
                         <div class="row motum-label-form">
                           <div class="col-md-12">
-                            <label for="inputMunicipality">{{ delegationMunicipality | translate }}</label>
+                            <label for="inputMunicipality">{{ endDet | translate }}</label>
                           </div>
                           <div class="col-md-12 col-sm-12">
-                            <div class="form-group has-success motum-input-form">
+                           <!-- <div class="form-group has-success motum-input-form">
                               <input [(ngModel)]="clientModel.municipality" type="text" class="form-control input-sm" id="inputMunicipality" [ngModelOptions]="{standalone: true}" required>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                         <div class="row motum-label-form">
                           <div class="col-md-8  col-sm-12 spaceTelPadding">
                             <div class=" has-success motum-input-form motum-intl-tel-input">
-                              <label for="">{{ landline | translate }}</label><br>
+                              <label for="">{{ operadorDet | translate }}</label><br>
+                            <!--
                               <motum-intl-tel-input [id]="'tm-intl-tel-input-fixed'"
                               [cssClasses]="'form-control input-sm'"></motum-intl-tel-input>
+                            -->
                             </div>
                           </div>
                           <div class="col-md-4 col-sm-12">
                             <div class=" has-success motum-input-form">
-                              <label for="inputnumberExtension">{{ numberExtension | translate }}</label><br>
+                             <!-- <label for="inputnumberExtension">{{ unidadDet | translate }}</label><br>
                               <input [(ngModel)]="clientModel.numberExtension" type="text" class="form-control input-sm" id="inputnumberExtension" [ngModelOptions]="{standalone: true}" required>
+                             -->
                             </div>
                           </div>
                         </div>
+
+                        <div class="row motum-label-form">
+                            <div class="col-md-8  col-sm-12 spaceTelPadding">
+                              <div class=" has-success motum-input-form motum-intl-tel-input">
+                                <label for="">{{ unidadDet | translate }}</label><br>
+                              <!--
+                                <motum-intl-tel-input [id]="'tm-intl-tel-input-fixed'"
+                                [cssClasses]="'form-control input-sm'"></motum-intl-tel-input>
+                              -->
+                              </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                              <div class=" has-success motum-input-form">
+                               <!-- <label for="inputnumberExtension">{{ unidadDet | translate }}</label><br>
+                                <input [(ngModel)]="clientModel.numberExtension" type="text" class="form-control input-sm" id="inputnumberExtension" [ngModelOptions]="{standalone: true}" required>
+                               -->
+                              </div>
+                            </div>
+                          </div>
+  
+
                         <div class="row motum-label-form space">
                           <div class="col-md-8  col-sm-12 spaceTelPadding">
                             <div class="has-success motum-input-form motum-intl-tel-input">
-                              <label for="">{{ phone | translate }}</label><br>
-                              <motum-intl-tel-input [id]="'tm-intl-tel-input'"
+                              <label for="">{{ remolque1Det | translate }}</label><br>
+                            <!--  <motum-intl-tel-input [id]="'tm-intl-tel-input'"
                               [cssClasses]="'form-control input-sm'"></motum-intl-tel-input>
-                            </div>
+                            -->
+                          </div>
                           </div>
 
                           <div class="col-sm-10 motum-label-form space">
                             <div class="has-success motum-input-form">
-                              <label for="inputServer">{{ server | translate }}</label>
-                              <select name="inputServer" id="inputServer" class="form-control">
+                              <label for="inputServer">{{ dollyDet | translate }}</label>
+                             <!-- <select name="inputServer" id="inputServer" class="form-control">
                                 <option></option>
-                              </select>
+                              </select> -->
+
                             </div>
                           </div>
                         </div>
                         <div class="row motum-label-form space">
                           <div class="col-md-12">
-                            <label for="inputSector">{{ sector | translate }}</label>
+                            <label for="inputSector">{{ remolque2Det | translate }}</label>
                           </div>
                           <div class="col-md-12 col-sm-12">
-                            <div class="form-group has-success motum-input-form">
+                           <!-- <div class="form-group has-success motum-input-form">
                               <input [(ngModel)]="clientModel.sector" type="text" class="form-control input-sm" id="inputSector" [ngModelOptions]="{standalone: true}" required>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
+                        <!--
                         <div class="row motum-label-form">
                           <div class="col-md-12">
                             <label for="inputMarketSegment">{{ marketSegment | translate}}</label>
@@ -265,6 +296,7 @@
                             </div>
                           </div>
                         </div>
+                        -->
                       </div>
                     </div>
                   </div>
@@ -286,7 +318,7 @@
           </ng-template>
         </ngb-tab>
 
-        <ngb-tab id="tabFacturacion" title="{{ billing | translate }}">
+        <ngb-tab id="tabFacturacion" title="{{ ruta | translate }}">
 
           <ng-template ngbTabContent>
             <div class="window-body">
@@ -489,7 +521,7 @@
           </ng-template>
 
         </ngb-tab>
-
+<!--
         <ngb-tab id="tabCuenta" title="{{ account | translate }}">
 
           <ng-template ngbTabContent>
@@ -929,6 +961,7 @@
             </div>
           </ng-template>
         </ngb-tab>
+      -->
       </ngb-tabset>
     </div>
   </div>
