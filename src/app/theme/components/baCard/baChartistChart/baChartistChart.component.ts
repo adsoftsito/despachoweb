@@ -1,10 +1,12 @@
+
 import {
     Component,
     ViewChild,
     Input,
     Output,
     ElementRef,
-    EventEmitter
+    EventEmitter,
+    
 } from '@angular/core';
 
 import * as Chartist from 'chartist';
@@ -14,6 +16,7 @@ import * as Chartist from 'chartist';
   templateUrl: './baChartistChart.html',
   providers: [],
 })
+
 export class BaChartistChart {
 
   @Input() baChartistChartType:string;
@@ -36,11 +39,12 @@ export class BaChartistChart {
     if (this.chart) {
       (<any>this.chart).update(this.baChartistChartData, this.baChartistChartOptions);
     }
-  }
+    }
 
   ngOnDestroy():void {
     if (this.chart) {
       this.chart.detach();
     }
   }
+  
 }
